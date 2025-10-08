@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
+     crossorigin="anonymous">
+  </script>
+  <title>Vectors — Ph.D. Dropout</title>
+
+  <!-- Font + Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax (LaTeX support) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        packages: {'[+]': ['physics']}
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="layout">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <nav class="nav">
+        <a href="physics.html">Physics</a>
+        <a class="active" href="maths.html">Maths</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-fill">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span> / </span>
+      <a href="maths.html">Maths</a><span> / </span>
+      <span>Vectors</span>
+    </nav>
+
+    <!-- Page header -->
+    <section class="page-header">
+      <h1>Vectors</h1>
+      <h2>Definitions, operations, dot & cross products, projections, and identities</h2>
+    </section>
+
+    <!-- Table of contents -->
+    <section id="toc" class="section-note" aria-label="Table of contents">
+      <h2>Table of contents</h2>
+      <ol class="bullets" style="margin-top:8px;">
+        <li><a href="#intro">What is a vector?</a></li>
+        <li><a href="#notation">Notation & components</a></li>
+        <li><a href="#ops">Basic operations</a></li>
+        <li><a href="#dot">Dot product</a></li>
+        <li><a href="#cross">Cross product</a></li>
+        <li><a href="#norms">Norms, unit vectors & projection</a></li>
+        <li><a href="#identities">Useful identities</a></li>
+        <li><a href="#exercises">Exercises</a></li>
+      </ol>
+    </section>
+
+    <!-- 1. Intro -->
+    <section id="intro" class="section-note">
+      <h2>1. What is a vector?</h2>
+      <p>
+        A vector represents a quantity with <em>magnitude</em> and <em>direction</em>. In $\mathbb{R}^n$ we write
+        $\mathbf{v} = (v_1,\dots,v_n)$, and its length (Euclidean norm) is
+        $\lVert \mathbf{v} \rVert = \sqrt{v_1^2+\cdots+v_n^2}$.
+      </p>
+    </section>
+
+    <!-- 2. Notation & components -->
+    <section id="notation" class="section-note">
+      <h2>2. Notation & components</h2>
+      <ul class="bullets">
+        <li>Vectors in <strong>bold</strong> (e.g., $\mathbf{v}$); scalars in roman (e.g., $a$).</li>
+        <li>2D: $\mathbf{v}=(v_x, v_y)$; 3D: $\mathbf{v}=(v_x, v_y, v_z)$ with basis $\{\mathbf{i},\mathbf{j},\mathbf{k}\}$.</li>
+        <li>Unit vector: $\hat{\mathbf{v}} = \dfrac{\mathbf{v}}{\lVert \mathbf{v} \rVert}$ (if $\mathbf{v}\neq \mathbf{0}$).</li>
+      </ul>
+    </section>
+
+    <!-- 3. Basic operations -->
+    <section id="ops" class="section-note">
+      <h2>3. Basic operations</h2>
+      <p><strong>Addition:</strong> $\ \mathbf{u}+\mathbf{v} = (u_x+v_x,\, u_y+v_y,\, u_z+v_z)$.</p>
+      <p><strong>Scalar multiplication:</strong> $\ a\mathbf{v} = (a v_x,\, a v_y,\, a v_z)$ for $a\in\mathbb{R}$.</p>
+      <p><strong>Magnitude:</strong> $\ \lVert \mathbf{v} \rVert = \sqrt{v_x^2+v_y^2+v_z^2}$.</p>
+    </section>
+
+    <!-- 4. Dot product -->
+    <section id="dot" class="section-note">
+      <h2>4. Dot product</h2>
+      <p>
+        Algebraic: $\ \mathbf{u}\cdot\mathbf{v} = u_x v_x + u_y v_y + u_z v_z = \sum_{i=1}^n u_i v_i.$
+        Geometric: $\ \mathbf{u}\cdot\mathbf{v} = \lVert \mathbf{u} \rVert \,\lVert \mathbf{v} \rVert \cos\theta$,
+        where $\theta$ is the angle between $\mathbf{u}$ and $\mathbf{v}$.
+      </p>
+      <p class="lede" style="margin-top:6px;">Consequences: Cauchy–Schwarz $\ \lvert \mathbf{u}\cdot\mathbf{v}\rvert \le \lVert \mathbf{u}\rVert \,\lVert \mathbf{v}\rVert$ and orthogonality when $\mathbf{u}\cdot\mathbf{v}=0$.</p>
+    </section>
+
+    <!-- 5. Cross product -->
+    <section id="cross" class="section-note">
+      <h2>5. Cross product (3D)</h2>
+      <p>
+        The cross product $\ \mathbf{u}\times\mathbf{v}$ is a vector orthogonal to both, with magnitude
+        $\lVert \mathbf{u}\times\mathbf{v} \rVert = \lVert \mathbf{u}\rVert \,\lVert \mathbf{v}\rVert \sin\theta$
+        and direction given by the right-hand rule.
+      </p>
+      <p>
+        Component form: 
+      </p>
+      <p>
+        $$\mathbf{u}\times\mathbf{v} =
+        \begin{vmatrix}
+          \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+          u_x & u_y & u_z \\
+          v_x & v_y & v_z
+        \end{vmatrix}
+        =
+        \big(u_y v_z - u_z v_y\big)\mathbf{i}
+        - \big(u_x v_z - u_z v_x\big)\mathbf{j}
+        + \big(u_x v_y - u_y v_x\big)\mathbf{k}.$$
+      </p>
+    </section>
+
+    <!-- 6. Norms, unit vectors & projection -->
+    <section id="norms" class="section-note">
+      <h2>6. Norms, unit vectors & projection</h2>
+      <p>
+        Normalize: $\ \hat{\mathbf{v}} = \dfrac{\mathbf{v}}{\lVert\mathbf{v}\rVert}$.
+        Projection of $\mathbf{v}$ onto $\mathbf{u}\neq\mathbf{0}$:
+        $$\mathrm{proj}_{\mathbf{u}} \mathbf{v} \;=\; \frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{u}\cdot\mathbf{u}}\,\mathbf{u}
+        \;=\; \frac{\mathbf{u}\cdot\mathbf{v}}{\lVert \mathbf{u}\rVert^2}\,\mathbf{u}.$$
+      </p>
+    </section>
+
+    <!-- 7. Useful identities -->
+    <section id="identities" class="section-note">
+      <h2>7. Useful identities</h2>
+      <ul class="bullets">
+        <li>Distributivity: $\ \mathbf{a}\cdot(\mathbf{b}+\mathbf{c})=\mathbf{a}\cdot\mathbf{b}+\mathbf{a}\cdot\mathbf{c}$, and similarly for $\times$.</li>
+        <li>Triple product: $\ \mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$ equals the signed volume; cyclic permutations preserve value (up to sign).</li>
+        <li>Vector triple product: $\ \mathbf{a}\times(\mathbf{b}\times\mathbf{c})=\mathbf{b}(\mathbf{a}\cdot\mathbf{c})-\mathbf{c}(\mathbf{a}\cdot\mathbf{b})$.</li>
+      </ul>
+    </section>
+
+    <!-- 8. Exercises -->
+    <section id="exercises" class="section-note">
+      <h2>8. Exercises</h2>
+      <ol class="bullets">
+        <li>Find the angle between $\mathbf{u}=(2,-1,2)$ and $\mathbf{v}=(1,2,2)$.</li>
+        <li>Compute $\mathrm{proj}_{\mathbf{u}}\mathbf{v}$ for $\mathbf{u}=(3,0,4)$ and $\mathbf{v}=(2,1,-1)$.</li>
+        <li>Show that $\lVert \mathbf{u}\times\mathbf{v}\rVert^2 = \lVert \mathbf{u}\rVert^2 \lVert \mathbf{v}\rVert^2 - (\mathbf{u}\cdot\mathbf{v})^2$.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container foot-wrap">
+      <span>© <span id="year"></span> Ph.D. Dropout</span>
+      <a class="muted" href="maths.html">Back to Maths</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

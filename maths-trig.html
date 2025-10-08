@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
+     crossorigin="anonymous">
+  </script>
+  <title>Trigonometry — Ph.D. Dropout</title>
+
+  <!-- Font + Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax (LaTeX support) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        packages: {'[+]': ['physics']}
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="layout">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <nav class="nav">
+        <a href="physics.html">Physics</a>
+        <a class="active" href="maths.html">Maths</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-fill">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span> / </span>
+      <a href="maths.html">Maths</a><span> / </span>
+      <span>Trigonometry</span>
+    </nav>
+
+    <!-- Page header -->
+    <section class="page-header">
+      <h1>Trigonometry</h1>
+      <h2>Defining Sine, Cosine, and Tangent.</h2>
+    </section>
+
+    <!-- Table of contents -->
+    <section id="toc" class="section-note" aria-label="Table of contents">
+      <h2>Table of contents</h2>
+      <ol class="bullets" style="margin-top:8px;">
+        <li><a href="#chapter 1">Sine & Cosecant</a></li>
+        <li><a href="#chapter 2">Cosine & Secant</a></li>
+        <li><a href="#ops">Tangent & Cotangent</a></li>
+        <li><a href="#dot">Derivation: $\sin^2 + \cos^2 = 1$</a></li>
+      </ol>
+    </section>
+
+    <!-- 1. Sine & Cosecant (Right Triangle) -->
+    <section id="chapter 1" class="section-note trig-split">
+      <div class="trig-copy">
+        <h2>1. Sine & Cosecant</h2>
+        <p class="lede">
+          Consider a right triangle such that the side $AB$ stands perpendicular on side $BC$ while the hypotenuse $AC$ makes an angle $\theta$ with the base.
+        </p>
+        <!-- sine -->
+        <p class="lede">
+          By definition, the sine of $\theta$ in the given right triangle is the ratio of the side opposite to the angle ($AB$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
+          $$\sin\theta=\frac{\text{opposite}}{\text{hypotenuse}} = \frac{AB}{AC}$$
+        </p>
+        <!-- cosecant -->
+        <p class="lede">
+          The reciprocal of sine is called cosecant, denoted $\csc\theta$:
+          $$\begin{align} 
+          \csc \theta &= \frac{1}{\sin\theta} \\
+                      &= \frac{\text{hypotenuse}}{\text{opposite}}\\
+                      &= \frac{AC}{AB}
+          \end{align}$$
+          $$\boxed{\therefore \csc \theta = \frac{AC}{AB}}$$
+        </p>
+      </div>
+
+      <!-- Right-side diagram -->
+      <figure class="trig-figure">
+        <img src="trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
+        <figcaption class="muted">Right triangle for defining trig ratios.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 2. Cosine & Secant -->
+    <section id="chapter 2" class="section-note">
+      <h2>2. Cosine & Secant</h2>
+      <p class="lede">
+        By definition, the cosine of $\theta$ in the above right triangle is the ratio of the side adjacent to the angle ($BC$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
+        $$\Rightarrow \cos\theta=\frac{\text{adjacent}}{\text{hypotenuse}} = \frac{BC}{AC}$$
+      </p>
+
+      <p class="lede">
+        The Secant of $\theta$ is the reciprocal of cosine:
+
+        $$\begin{align} 
+        \sec \theta &= \frac{1}{\cos \theta}\\
+                    &= \frac{\text{hypotenuse}}{\text{adjacent}}\\
+                    &= \frac{AC}{BC}
+        \end{align}$$
+
+        $$\boxed{\therefore \sec \theta = \frac{AC}{BC}}$$
+      </p>
+      <!-- (Add your own notes/examples here) -->
+    </section>
+
+    <!-- 3. Tangent & Cotangent -->
+    <section id="chapter 3" class="section-note">
+      <h2>3. Tangent & Cotangent</h2>
+      <p class="lede">
+        By definition, the tangent of $\theta$ in the above right triangle is the ration of the side opposite to the angle to the side adjacent to the angle:
+        $$\Rightarrow \tan \theta = \frac{\text{opposite}}{\text{adjacent}} = \frac{\text{height}}{\text{base}}$$
+        $$\Rightarrow \tan \theta = \frac{AB}{BC}$$
+
+        The above fraction can be rewritten as:
+
+        $$\begin{align}
+        \tan \theta &= \frac{AB}{BC}\\
+                    &= \frac{AB/AC}{BC/AC}\\
+                    &= \frac{\sin \theta}{\cos \theta}
+        \end{align}$$
+
+        $$\boxed{\therefore \tan \theta = \frac{\sin \theta}{\cos \theta}}$$
+      </p>
+      <!-- (Add your own notes/examples here) -->
+    </section>
+
+    <!-- 4. Derivation: sin²θ + cos²θ = 1 -->
+    <section id="chapter 4" class="section-note">
+      <h2>4. Derivation: $\sin^2\theta + \cos^2\theta = 1$</h2>
+      <p>
+        From similar triangles or the Pythagorean Theorem on a right triangle with sides
+        $(\text{adjacent}, \text{opposite}, \text{hypotenuse})$,
+        $$\left(\frac{\text{adjacent}}{\text{hypotenuse}}\right)^2
+          + \left(\frac{\text{opposite}}{\text{hypotenuse}}\right)^2
+          = 1 \;\;\Rightarrow\;\; \cos^2\theta + \sin^2\theta = 1.$$
+      </p>
+      <!-- (Add your step-by-step proof style here) -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container foot-wrap">
+      <span>© <span id="year"></span> Ph.D. Dropout</span>
+      <a class="muted" href="maths.html">Back to Maths</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

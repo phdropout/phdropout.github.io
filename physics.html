@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
+     crossorigin="anonymous">
+  </script>
+  <title>Physics — Ph.D. Droupout</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="layout">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <nav class="nav">
+        <a class="active" href="physics.html">Physics</a>
+        <a href="maths.html">Maths</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-fill">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span> / </span><span>Physics</span></nav>
+
+    <section class="page-header">
+      <h1>Physics</h1>
+      <h2>Select a topic to explore</h2>
+      <!--<p class="lede">Well-structured modules. Short notes. Targeted problems.</p>-->
+    </section>
+
+    <!-- Minimal topic chips (no big cards) -->
+     <!--
+    <section aria-label="Physics topics" class="topics-grid">
+      <a class="topic-chip" href="#mechanics">Classical Mechanics</a>
+      <a class="topic-chip" href="#em">Electricity &amp; Magnetism</a>
+      <a class="topic-chip" href="#thermo">Thermodynamics</a>
+      <a class="topic-chip" href="#relativity">Relativity</a>
+    </section>
+    -->
+    
+    <!-- Sections (expand later with real content) -->
+    <a id="mechanics" class="section-note" href="physics-mechanics.html">
+        <h2>Classical Mechanics</h2>
+        <p>Start with vectors, kinematics in 1D/2D, and Newton's laws. Keep units and diagrams tidy.</p>
+        <ul class="bullets">
+            <li>Derive constant-acceleration formulas from velocity-time area.</li>
+            <li>Energy methods: conservative forces → potential; small oscillations.</li>
+            <li>Angular momentum, central forces, effective potential.</li>
+        </ul>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot-wrap">
+      <span>© <span id="year"></span> Ph.D. Droupout</span>
+      <a class="muted" href="index.html">Back to Home</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
