@@ -29,3 +29,14 @@
   }
 })();
 
+// === Footer dynamic year and last-updated ===
+const yearSpan = document.getElementById("current-year");
+if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+const lastUpdatedSpan = document.getElementById("last-updated");
+if (lastUpdatedSpan) {
+  const lastModified = new Date(document.lastModified);
+  lastUpdatedSpan.textContent = lastModified.toLocaleDateString(undefined, {
+    year: "numeric", month: "short", day: "numeric"
+  });
+}

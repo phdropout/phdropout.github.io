@@ -77,12 +77,18 @@
     </section>
 
     <!-- 1. Sine & Cosecant (Right Triangle) -->
-    <section id="chapter 1" class="section-note trig-split">
+
+    <section id="chapter 1" class="section-note">
       <div class="trig-copy">
         <h2>1. Sine & Cosecant</h2>
         <p class="lede">
           Consider a right triangle such that the side $AB$ stands perpendicular on side $BC$ while the hypotenuse $AC$ makes an angle $\theta$ with the base.
         </p>
+        <!-- Right-side diagram -->
+      <figure class="fig-left">
+        <img src="trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
+        <figcaption class="muted">Right triangle for defining trig ratios.</figcaption>
+      </figure>
         <!-- sine -->
         <p class="lede">
           By definition, the sine of $\theta$ in the given right triangle is the ratio of the side opposite to the angle ($AB$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
@@ -100,11 +106,7 @@
         </p>
       </div>
 
-      <!-- Right-side diagram -->
-      <figure class="trig-figure">
-        <img src="trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
-        <figcaption class="muted">Right triangle for defining trig ratios.</figcaption>
-      </figure>
+      
     </section>
 
     <!-- 2. Cosine & Secant -->
@@ -176,10 +178,9 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container foot-wrap">
-      <span>© <span id="year"></span> Ph.D. Dropout</span>
-      <a class="muted" href="maths.html">Back to Maths</a>
-    </div>
+    <p>&copy; <span id="current-year"></span> Ph.D. Dropout. 
+    All rights reserved.
+    Last updated: <span id="last-updated"></span></p>
   </footer>
 
   <script src="script.js"></script>

@@ -326,3 +326,103 @@ html[data-theme="dark"] .trig-figure img {
     max-width: 100%;
   }
 }
+
+/* === Unified Footer (from personal website) === */
+.site-footer {
+  text-align: center;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in hsl, var(--bg) 90%, transparent);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.site-footer p {
+  margin: 10px;
+  color: var(--muted);
+}
+
+/* Centered “Coming Soon” layout without a card */
+.coming-wrap {
+  min-height: 60vh;
+  display:contents;
+  place-items: center;
+  text-align: center;
+  gap: 0px;
+}
+.coming-wrap h1 { margin: 10ch; }
+.coming-wrap .lede {
+  max-width: 70ch;
+  margin: 10ch auto;
+}
+
+/* Let text fill the whole card when there is no diagram layout */
+.section-note:not(.trig-split) .lede {
+  max-width: none;   /* or try 85ch if you want a soft cap */
+}
+
+/* === Float-based figure layout inside cards =============================== */
+/* Works for any .section-note: text fills remaining space dynamically.      */
+/* Add class="fig-left" or "fig-right" on <figure>.                          */
+
+/* Clearfix so floated figures don't leak outside the card */
+.section-note::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Base figure look */
+.section-note figure {
+  margin: 0;               /* reset */
+  text-align: center;
+}
+
+/* Image sizing: respect intrinsic size but cap responsibly */
+.section-note figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  transition: filter 0.3s ease;
+}
+
+/* Optional: dark-mode invert for line-art diagrams */
+html[data-theme="dark"] .section-note figure img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Right-aligned figure (default spacing on the left) */
+.section-note figure.fig-right {
+  float: right;
+  /* Width adapts to container size; image won’t exceed this */
+  width: clamp(180px, 30%, 360px);
+  margin: 0 0 12px 18px;
+}
+
+/* Left-aligned figure */
+.section-note figure.fig-left {
+  float: left;
+  width: clamp(180px, 30%, 360px);
+  margin: 0 18px 12px 0;
+}
+
+/* Tighten line-length only when a floated figure is present directly nearby */
+.section-note :is(.fig-left, .fig-right) ~ .lede,
+.section-note p:has(+ figure.fig-left),
+.section-note p:has(+ figure.fig-right) {
+  max-width: none;  /* ensure full wrap across remaining space */
+}
+
+/* If you keep using .lede elsewhere, let default be comfortable lines */
+.lede { max-width: 70ch; }
+
+/* Mobile: stop floating; stack full-width */
+@media (max-width: 900px) {
+  .section-note figure.fig-left,
+  .section-note figure.fig-right {
+    float: none;
+    width: 100%;
+    margin: 10px auto;
+  }
+}

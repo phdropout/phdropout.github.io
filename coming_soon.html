@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-adsense-account" content="ca-pub-9655733111830298">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
-            crossorigin="anonymous">
-        </script>
-        <title>Coming Soon | Ph.D. Dropout</title>
-        <link rel="stylesheet" href="styles.css" />
-        <style>
-            body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            padding: 20px;
-            color: var(--text);
-            background: var(--bg);
-            transition: background 0.3s, color 0.3s;
-            }
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WVC02428G3');
+  </script>
 
-            h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298" crossorigin="anonymous"></script>
 
-            p {
-            font-size: 1.2rem;
-            color: var(--muted);
-            max-width: 600px;
-            }
+  <title>Coming Soon — Ph.D. Dropout</title>
 
-            a.home-link {
-            margin-top: 2rem;
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
-            text-decoration: none;
-            background: var(--accent);
-            color: white;
-            font-weight: 500;
-            transition: background 0.3s;
-            }
+  <!-- Fonts + CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-            a.home-link:hover {
-            background: var(--accent-hover);
-            }
+<body class="layout">
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <nav class="nav">
+        <a href="physics.html">Physics</a>
+        <a href="maths.html">Maths</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+      </nav>
+    </div>
+  </header>
 
-            /* Dark mode adjustments */
-            html[data-theme="dark"] body {
-            background: var(--bg-dark);
-            color: var(--text-dark);
-            }
-        </style>
-    </head>
-    <body>
-        <h1>🚧 Content Coming Soon 🚧</h1>
-        <p>
-            This section is under development.  
-            We're crafting detailed, step-by-step explanations to make this topic as clear and intuitive as possible.
-        </p>
-        <a href="index.html" class="home-link">Back to Home</a>
+  <main class="container main-fill">
+    <!-- Breadcrumb for consistency -->
+    <nav class="breadcrumb"><a href="index.html">Home</a><span> / </span><span>Coming soon</span></nav>
 
-        <script src="script.js"></script>
-    </body>
+    <!-- Centered layout -->
+    <section class="coming-wrap" aria-label="Coming soon">
+      <h1>🚧 Content Coming Soon 🚧</h1>
+      <p class="lede">
+        This section is under development. We're crafting detailed, step-by-step explanations to make this topic as clear and intuitive as possible.
+      </p>
+    </section>
+  </main>
+
+  <!-- Shared footer -->
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Ph.D. Dropout. 
+    All rights reserved.
+    Last updated: <span id="last-updated"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
