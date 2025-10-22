@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WVC02428G3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
+     crossorigin="anonymous">
+  </script>
+  <title>Motion in One Dimension (Algebra Based) — Ph.D. Dropout</title>
+
+  <!-- Font + Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax (LaTeX support) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        packages: {'[+]': ['physics']}
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="layout">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <nav class="nav">
+        <a href="physics.html">Physics</a>
+        <a class="active" href="maths.html">Maths</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-fill">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span> / </span>
+      <a href="physics.html">Physics</a><span> / </span>
+      <span>Motion in One Dimension (Algebra Based)</span>
+    </nav>
+
+    <!-- Page header -->
+    <section class="page-header">
+      <h1>Motion in One Dimension (Algebra Based)</h1>
+      <!--<h2>Defining Sine, Cosine, and Tangent.</h2>-->
+    </section>
+
+    <!-- Table of contents -->
+    <section id="toc" class="section-note" aria-label="Table of contents">
+      <h2>Table of contents</h2>
+      <ol class="bullets" style="margin-top:8px;">
+        <li><a href="#chapter 1">Distance & Displacement</a></li>
+        <li><a href="#chapter 2">Speed & Velocity</a></li>
+        <li><a href="#ops">Chapter 3</a></li>
+        <li><a href="#dot">Chapter 4</a></li>
+      </ol>
+    </section>
+
+    <!-- 1. Sine & Cosecant (Right Triangle) -->
+
+    <section id="chapter 1" class="section-note">
+      <div class="trig-copy">
+        <h2>1. Distance & Displacement</h2>
+        <p class="lede">
+          An object is said to be in motion or at rest only when its position changes or remains the same with respect to a reference point. Consider point $P$ on a one-dimensional line (Fig 1). With the point being by itself, it is impossible to say anything about its position. It is also impossible to say whether the point is in motion or at rest.
+        </p>
+        <!-- Right-side diagram -->
+        <figure class="fig-right">
+            <img src="mod_diagrams/point.svg" alt="A point on a line" />
+            <figcaption class="muted">Fig 1: Point P in an one dimensional space</figcaption>
+        </figure>
+
+        <p class="lede">
+          To describe the position of point $P$, we need to introduce a reference point, say point $O$. When point $P$ changes its position relative to point $O$, it is said to be in motion. To describe this change quantitatively, we introduce two related but distinct concepts - distance and displacement.
+        </p>
+
+        <p class="lede">
+          <b>Distance</b> is the total length of the path traveled by an object, regardless of direction. it is a scalar quantity, meaning it only has magnitude and no direction.
+        </p>
+
+        <!-- Right-side diagram -->
+        <figure class="fig-left">
+            <img src="mod_diagrams/point_with_ref.svg" alt="Two points on a line" />
+            <figcaption class="muted">Fig 2: Position of point P relative to $O$ in an one dimensional space</figcaption>
+        </figure>
+        <p class="lede">
+          <b>Displacement</b>, on the other hand, is the shortest straight-line path between the initial and final positions of an object. It is a vector quantity, which means it has both magnitude and direction.
+        </p>
+
+        <figure class="fig-right">
+            <img src="mod_diagrams/ex1.svg" alt="Motion in 1D" />
+            <figcaption class="muted">Fig 3: Displacement of $P$ relative to $O$: $-x_2$. Total distance traveled by $P$: $x_1 + x_2$.</figcaption>
+        </figure>
+
+        <p class="lede">
+          For example, overlay a coordinate system on the line such that point $O$ is at the origin (Fig 3). Suppose point $P$ initially at the origin moves $x_1$ units to the right of point $O$ and then moves to a new position $x_2$ units to the left of point $O$. In this case, the <b>distance</b> traveled by point $P$ is $x_1 + x_2$ units. However, the <b>displacement</b> of point $P$ is given by the difference between its final and initial positions, which is $-x_2 - 0 = -x_2$ units (negative sign indicates direction to the left).
+        </p>
+        
+        <!-- Example 1 -->
+        <p class="lede">
+          <b>Example 1: </b> Suppose a particle moves from $x=0m$ to $x=5m$.
+
+          <ul class="lede">
+            <li>Distance traveled: $5m$.</li>
+            <li>Displacement: final position - initial position $=5m - 0m = 5m$.</li>
+          </ul>
+        </p>
+
+        <!-- Example 2 -->
+         <p class="lede">
+          <b> Example 2: </b> Suppose a car moves from $x_0=0m$ to $x_1=8m$, then reverses the direction and moves to $x_2=-5m$.
+
+          <ul class="lede">
+            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|= |8m - 0m| + |-5m - 8m| = 8m + 13m = 21m$.</li>
+            <li>Displacement: final position - initial position $= x_2 - x_0 = -5m - 0m = -5m$.</li>
+          </ul>
+         </p>
+
+         <p class="lede">
+          <b>Example 3: </b> Suppose the car in Example 2 was initially at $x_0 = 3m$ instead of $x_0 = 0m$.
+
+          <ul class="lede">
+            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|= |8m - 3m| + |-5m - 8m| = 5m + 13m = 18m$.</li>
+            <li>Displacement: final position - initial position $= x_2 - x_0 = -5m - 3m = -8m$.</li>
+          </ul>
+
+         </p>
+
+      </div>
+
+      
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Ph.D. Dropout. 
+    All rights reserved.
+    Last updated: <span id="last-updated"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

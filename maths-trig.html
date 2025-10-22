@@ -71,8 +71,8 @@
       <ol class="bullets" style="margin-top:8px;">
         <li><a href="#chapter 1">Sine & Cosecant</a></li>
         <li><a href="#chapter 2">Cosine & Secant</a></li>
-        <li><a href="#ops">Tangent & Cotangent</a></li>
-        <li><a href="#dot">Derivation: $\sin^2 + \cos^2 = 1$</a></li>
+        <li><a href="#chapter 3">Tangent & Cotangent</a></li>
+        <li><a href="#chapter 4">Derivation: $\sin^2 \theta + \cos^2 \theta = 1$</a></li>
       </ol>
     </section>
 
@@ -87,7 +87,7 @@
         <!-- Right-side diagram -->
       <figure class="fig-left">
         <img src="trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
-        <figcaption class="muted">Right triangle for defining trig ratios.</figcaption>
+        <figcaption class="muted">Fig 1: Right triangle for defining trig ratios.</figcaption>
       </figure>
         <!-- sine -->
         <p class="lede">
@@ -165,14 +165,28 @@
     <!-- 4. Derivation: sin²θ + cos²θ = 1 -->
     <section id="chapter 4" class="section-note">
       <h2>4. Derivation: $\sin^2\theta + \cos^2\theta = 1$</h2>
-      <p class="lede">
+      <!--<p class="lede">
         From similar triangles or the Pythagorean Theorem on a right triangle with sides
         $(\text{adjacent}, \text{opposite}, \text{hypotenuse})$,
         $$\left(\frac{\text{adjacent}}{\text{hypotenuse}}\right)^2
           + \left(\frac{\text{opposite}}{\text{hypotenuse}}\right)^2
           = 1 \;\;\Rightarrow\;\; \cos^2\theta + \sin^2\theta = 1.$$
+      </p>-->
+      <p class="lede">
+        Using the Pythagorean Theorem on the right triangle in Fig 1, we have:
+        $$AB^2 + BC^2 = AC^2$$
+
+        Let us divide both sides of the above equation by $AC^2$. This gives:
+
+        $$\frac{AB^2}{AC^2} + \frac{BC^2}{AC^2} = \frac{AC^2}{AC^2}$$
+        $$\therefore \left (\frac{AB}{AC}\right )^2 + \left (\frac{BC}{AC}\right )^2 = 1$$
+
+        From the definitions of sine and cosine, we know that $\frac{AB}{AC} = \sin \theta$ and $\frac{BC}{AC} = \cos \theta$. Substituting these into the above equation, we get:
+
+        $$\boxed{\sin^2 \theta + \cos^2 \theta = 1}$$
+
       </p>
-      <!-- (Add your step-by-step proof style here) -->
+
     </section>
   </main>
 
