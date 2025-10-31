@@ -28,11 +28,17 @@
 <body class="layout">
   <header class="site-header">
     <div class="container header-wrap">
-      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <!--<a href="index.html" class="brand">Ph.D. Dropout</a>-->
+        <a href="index.html" class="brand" aria-label="Ph.D. Dropout — Home">
+          <img src="logo/logo.svg" class="brand-logo" alt="" />
+          <span class="brand-text">Ph.D. Dropout</span>
+        </a>
       <nav class="nav">
         <a class="active" href="physics.html">Physics</a>
         <a href="maths.html">Maths</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">
+            <img id="theme-icon" src="toggles/dark_mode.png" alt="Switch to dark mode">
+        </button>
       </nav>
     </div>
   </header>
@@ -58,7 +64,7 @@
     
     <!-- Sections (expand later with real content) -->
     <a id="mechanics" class="section-note" href="physics-MOD-alg.html">
-        <h2>Motion in One Dimension (Algebra Based)</h2>
+        <h2>Motion in One Dimension</h2>
         <!--<p>Start with vectors, kinematics in 1D/2D, and Newton's laws. Keep units and diagrams tidy.</p>
         <ul class="bullets">
             <li>Derive constant-acceleration formulas from velocity-time area.</li>

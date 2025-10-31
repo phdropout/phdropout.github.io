@@ -42,11 +42,17 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-wrap">
-      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <!--<a href="index.html" class="brand">Ph.D. Dropout</a>-->
+        <a href="index.html" class="brand" aria-label="Ph.D. Dropout — Home">
+          <img src="logo/logo.svg" class="brand-logo" alt="" />
+          <span class="brand-text">Ph.D. Dropout</span>
+        </a>
       <nav class="nav">
         <a href="physics.html">Physics</a>
         <a class="active" href="maths.html">Maths</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">
+            <img id="theme-icon" src="toggles/dark_mode.png" alt="Switch to dark mode">
+        </button>
       </nav>
     </div>
   </header>
@@ -72,7 +78,7 @@
         <li><a href="#chapter 1">Sine & Cosecant</a></li>
         <li><a href="#chapter 2">Cosine & Secant</a></li>
         <li><a href="#chapter 3">Tangent & Cotangent</a></li>
-        <li><a href="#chapter 4">Derivation: $\sin^2 \theta + \cos^2 \theta = 1$</a></li>
+        <li><a href="#chapter 4">Trigonometric identities</a></li>
       </ol>
     </section>
 
@@ -164,7 +170,8 @@
 
     <!-- 4. Derivation: sin²θ + cos²θ = 1 -->
     <section id="chapter 4" class="section-note">
-      <h2>4. Derivation: $\sin^2\theta + \cos^2\theta = 1$</h2>
+      <h2>4. Trigonometric identities</h2>
+      <h3>$\Rightarrow \sin^2 \theta + \cos^2 \theta = 1:$</h3>
       <!--<p class="lede">
         From similar triangles or the Pythagorean Theorem on a right triangle with sides
         $(\text{adjacent}, \text{opposite}, \text{hypotenuse})$,
@@ -185,8 +192,32 @@
 
         $$\boxed{\sin^2 \theta + \cos^2 \theta = 1}$$
 
+        The above identity can be rearranged to get the following forms:
+        $$\boxed{\cos^2 \theta = 1 - \sin^2 \theta}$$
+        $$\boxed{\sin^2\theta = 1 - \cos^2\theta}$$
       </p>
 
+      <h3>$\Rightarrow \tan^2 \theta + 1 = \sec^2\theta:$</h3>
+      <p class="lede">
+        Starting from the Pythagorean identity $\sin^2 \theta + \cos^2 \theta = 1$, we can derive the identity involving tangent and secant by diving each side by $\cos^2 \theta$ as shown below:
+
+        $$\begin{align} 
+        \sin^2 \theta + \cos^2 \theta &= 1\\
+        \therefore \frac{\sin^2 \theta + \cos^2 \theta}{\cos^2 \theta} &= \frac{1}{\cos^2\theta}\\
+        \therefore \frac{\sin^2 \theta}{\cos^2 \theta} + \frac{\cos^2 \theta}{\cos^2 \theta} &= \frac{1}{\cos^2 \theta}
+        \end{align}$$
+
+        $$\therefore \boxed{\tan^2 \theta + 1 = \sec^2 \theta}$$
+      </p>
+
+      <h3>$\Rightarrow 1 + \cot^2\theta = \csc^2\theta:$</h3>
+      <p class="lede">
+        In the previous derivation we divided the Pythagorean identity by $\cos^2 \theta$. Let us now divide the same identity by $\sin^2 \theta$. This gives:
+
+        $$\frac{\sin^2 \theta}{\sin^2 \theta} + \frac{\cos^2 \theta}{\sin^2 \theta} = \frac{1}{\sin^2 \theta}$$
+
+        $$\therefore \boxed{1 + \cot^2 \theta = \csc^2 \theta}$$
+      </p>
     </section>
   </main>
 

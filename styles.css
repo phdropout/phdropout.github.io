@@ -28,6 +28,12 @@ body {
   --border: #e6e9ef;
   --shadow: 0 10px 24px rgba(0,0,0,.06);
   --radius: 14px;
+
+  --bg: #f0f0f0;
+  --text: #333;
+  --muted: #555;
+  --border: #e0e0e0;
+  --accent: #007BFF;
 }
 
 :root[data-theme="dark"]{
@@ -40,6 +46,12 @@ body {
   --border: #22262b;
   --shadow: 0 6px 20px rgba(0,0,0,.35);
   --radius: 14px;
+
+  --bg: #1e1f22;      /* soft matte dark gray background */
+  --text: #e5e5e5;    /* gentle off-white for main text */
+  --muted: #b0b0b0;   /* softer gray for secondary text */
+  --border: #2d2f34;  /* subtle gray borders */
+  --accent: #66aaff;  /* calm blue accent */
 }
 
 /* ===== Layout ===== */
@@ -64,12 +76,41 @@ body.layout {
 }
 .header-wrap{
   display:flex; align-items:center; justify-content:space-between;
-  padding: 20px 0;
+  padding: 25px 0;
+  font-size: 25px;
 }
+
+/*
 .brand{
   color: var(--text); text-decoration:none; font-weight:800; letter-spacing:.2px;
   font-size: clamp(18px, 2.2vw, 22px);
 }
+*/
+
+/* Brand with logo */
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 70px;
+  text-decoration: none;
+}
+
+.brand-logo{
+  height: 50px;   /* adjust to taste: 24–32px */
+  width: auto;
+  display: block;
+  transform: scale(2.5); /* visually enlarges the logo */
+  transform-origin: left center;
+}
+
+/* keep the nice typography on just the text */
+.brand-text{
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: clamp(45px, 2.2vw, 22px);
+}
+
 .nav { display:flex; align-items:center; gap: 22px; }
 .nav a{
   color: var(--muted); text-decoration:none; font-weight:600; transition: color .2s ease;
@@ -79,17 +120,23 @@ body.layout {
 /* Theme toggle button */
 .theme-toggle{
   margin-left: 6px;
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
   background: var(--panel);
   color: var(--text);
   border-radius: 10px;
   padding: 10px 12px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  
   transition: transform .15s ease, border-color .2s ease, background .2s ease;
   background: transparent;
 }
+.theme-toggle img {
+  height: 25px;
+  width: 25px;
+  display: block;
+}
+
 .theme-toggle:hover{
   transform: translateY(-1px);
   border-color: color-mix(in hsl, var(--border), var(--text) 10%);
@@ -218,7 +265,7 @@ body.layout {
 .bullets{ margin: 10px 0 0 18px; color: var(--muted); }
 
 .section-note:hover{
-  transform: translateY(-1px);
+  /*transform: translateY(-1px);*/
   border-color: color-mix(in hsl, var(--border), var(--text) 15%);
   background: color-mix(in hsl, var(--panel) 62%, transparent);
 }

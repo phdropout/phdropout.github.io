@@ -42,11 +42,17 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-wrap">
-      <a href="index.html" class="brand">Ph.D. Dropout</a>
+      <!--<a href="index.html" class="brand">Ph.D. Dropout</a>-->
+        <a href="index.html" class="brand" aria-label="Ph.D. Dropout — Home">
+          <img src="logo/logo.svg" class="brand-logo" alt="" />
+          <span class="brand-text">Ph.D. Dropout</span>
+        </a>
       <nav class="nav">
         <a href="physics.html">Physics</a>
         <a class="active" href="maths.html">Maths</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">🌙</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">
+            <img id="theme-icon" src="toggles/dark_mode.png" alt="Switch to dark mode">
+        </button>
       </nav>
     </div>
   </header>
@@ -71,8 +77,7 @@
       <ol class="bullets" style="margin-top:8px;">
         <li><a href="#chapter 1">Distance & Displacement</a></li>
         <li><a href="#chapter 2">Speed & Velocity</a></li>
-        <li><a href="#ops">Chapter 3</a></li>
-        <li><a href="#dot">Chapter 4</a></li>
+        <li><a href="#chapter 3">Acceleration</a></li>
       </ol>
     </section>
 
@@ -107,6 +112,10 @@
           <b>Displacement</b>, on the other hand, is the shortest straight-line path between the initial and final positions of an object. It is a vector quantity, which means it has both magnitude and direction.
         </p>
 
+        <p class="lede">
+          The S.I. unit for both distance and displacement is the meter ($m$).
+        </p>
+
         <figure class="fig-right">
             <img src="mod_diagrams/ex1.svg" alt="Motion in 1D" />
             <figcaption class="muted">Fig 3: Displacement of $P$ relative to $O$: $-x_2$. Total distance traveled by $P$: $x_1 + x_2$.</figcaption>
@@ -122,7 +131,7 @@
 
           <ul class="lede">
             <li>Distance traveled: $5m$.</li>
-            <li>Displacement: final position - initial position $=5m - 0m = 5m$.</li>
+            <li>Displacement: final position - initial position $=5m - 0m$ $= 5m$.</li>
           </ul>
         </p>
 
@@ -131,8 +140,8 @@
           <b> Example 2: </b> Suppose a car moves from $x_0=0m$ to $x_1=8m$, then reverses the direction and moves to $x_2=-5m$.
 
           <ul class="lede">
-            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|= |8m - 0m| + |-5m - 8m| = 8m + 13m = 21m$.</li>
-            <li>Displacement: final position - initial position $= x_2 - x_0 = -5m - 0m = -5m$.</li>
+            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|=$ $|8m - 0m| + |-5m - 8m| =$ $8m + 13m = 21m$.</li>
+            <li>Displacement: final position - initial position $= x_2 - x_0 =$ $-5m - 0m = -5m$.</li>
           </ul>
          </p>
 
@@ -140,10 +149,15 @@
           <b>Example 3: </b> Suppose the car in Example 2 was initially at $x_0 = 3m$ instead of $x_0 = 0m$.
 
           <ul class="lede">
-            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|= |8m - 3m| + |-5m - 8m| = 5m + 13m = 18m$.</li>
-            <li>Displacement: final position - initial position $= x_2 - x_0 = -5m - 3m = -8m$.</li>
+            <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|=$ $|8m - 3m| + |-5m - 8m| =$ $5m + 13m = 18m$.</li>
+            <li>Displacement: final position - initial position $= x_2 - x_0 =$ $-5m - 3m = -8m$.</li>
           </ul>
 
+         </p>
+
+         <p class="lede">
+          Therefore, in mathematical terms, the displacement $\Delta x$ of an object moving from an initial position $x_i$ to a final position $x_f$ is given by:
+          $$\Delta x = x_f - x_i$$
          </p>
 
       </div>
@@ -151,6 +165,42 @@
       
     </section>
 
+    <section id="chapter 2" class="section-note">
+      <div class="trig-copy">
+        <h2>2. Speed & Velocity</h2>
+        <p class="lede">
+          In the previous section, we learned that distance and displacement describe how far an object moves. To describe how fast the motion occurs, we introduce <b>speed</b> and <b>velocity</b>.
+        </p>
+        <p class="lede">
+          <b style="font-size:20px">Speed</b> is the rate at which an object covers distance. It tells us how fast an object is moving, regardless of its direction. Mathematically, speed $s$ is defined as the total distance $d$ traveled divided by the time $t$ taken to travel that distance:
+          
+          $$s = \frac{d}{t}$$
+
+          Since distance is a scalar quantity, and distance traveled is always positive, speed is also a scalar quantity and is always non-negative.
+        </p>
+        <p class="lede">
+          <b style="font-size:20px">Velocity</b> is the rate of change of displacement with respect to time. It tells us how fast an object is moving in a specific direction. For instance, if by convention, we consider rightward motion as positive and leftward motion as negative, then velocity can be positive or negative based on the direction of motion. Mathematically, velocity $v$ is defined as the displacement $\Delta x$ divided by the time interval $\Delta t$ during which the displacement occurs:
+
+          $$v = \frac{\Delta x}{\Delta t}$$
+
+          Because displacement is a vector quantity, velocity is also a vector quantity. Therefore, at any given instant, the velocity of an object represents both its speed and the direction of its motion.
+        </p>
+        <h2>S.I. unit of Speed & Velocity</h2>
+        <p class="lede">
+          The S.I. unit for time is the second ($s$). And from chapter 1, we know that the S.I. unit for both distance and displacement is the meter ($m$). To obtain the S.I. unit for speed and velocity, we can substitue these units into the above definitions. Therefore, the S.I. unit for speed is,
+
+          $$[s] = \frac{[d]}{[t]} = \frac{m}{s}$$
+
+          Similarly, the S.I. unit for velocity is $m/s$.
+        </p>
+      </div>
+    </section>
+
+    <section id="chapter 3" class="section-note">
+      <div class="trig-copy">
+        <h2>3. Acceleration</h2>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
