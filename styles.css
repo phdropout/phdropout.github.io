@@ -112,7 +112,7 @@ body.layout {
 }
 
 /* Mobile-first header compression */
-@media (max-width: 640px){
+@media (max-width: 800px){
   .header-wrap{
     padding: 12px 0;                          /* was 25px */
     gap: 10px;
