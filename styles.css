@@ -118,11 +118,11 @@ body.layout {
     gap: 10px;
   }
   .nav{ gap: 12px; }                          /* was 16px */
-  .nav a{ font-size: 16px; }                  /* slightly smaller links */
+  .nav a{ font-size: 18px; }                  /* slightly smaller links */
   .theme-toggle{ padding: 6px; }              /* tighter button */
   .theme-toggle img{ height: 20px; width: 20px; }
-  .brand-text{ font-size: clamp(20px, 2.2vw, 22px); }
-  .brand-logo{ height: 20px; transform: scale(2.3);}
+  .brand-text{ font-size: clamp(20px, 2.2vw, 22px); display: none; }
+  .brand-logo{ height: 30px; transform: scale(2.3);}
   .brand{gap: 20px;}
 }
 
