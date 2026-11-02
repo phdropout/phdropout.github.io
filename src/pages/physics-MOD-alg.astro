@@ -9,238 +9,220 @@ const toc = [
 ];
 ---
 
-<ArticleLayout
-  subject="physics"
-  title="Motion in One Dimension"
-  tabTitle="Motion in One Dimension (Algebra Based)"
-  toc={toc}
->
-  <!-- is:raw stops Astro reading the braces in LaTeX as template expressions. -->
+<ArticleLayout subject="physics" topic="mechanics" toc={toc}>
+  <!--
+    is:raw stops Astro reading the braces in LaTeX as template expressions.
+    The classes available for this content are listed at the top of public/styles.css.
+  -->
   <Fragment is:raw>
-    <!-- 1. Sine & Cosecant (Right Triangle) -->
-
-    <section id="chapter 1" class="section-note">
-      <div class="trig-copy">
+    <section id="chapter 1" class="chapter">
         <h2>1. Distance & Displacement</h2>
-        <p class="lede">
+        <p>
           An object is said to be in motion or at rest only when its position changes or remains the same with respect to a reference point. Consider point $P$ on a one-dimensional line (Fig 1). With the point being by itself, it is impossible to say anything about its position. It is also impossible to say whether the point is in motion or at rest.
         </p>
-        <!-- Right-side diagram -->
-        <figure class="fig-right">
+        <figure class="trim">
             <img src="/mod_diagrams/point.svg" alt="A point on a line" />
             <figcaption class="muted">Fig 1: Point P in an one dimensional space</figcaption>
         </figure>
 
-        <p class="lede">
+        <p>
           To describe the position of point $P$, we need to introduce a reference point, say point $O$. When point $P$ changes its position relative to point $O$, it is said to be in motion. To describe this change quantitatively, we introduce two related but distinct concepts - distance and displacement.
         </p>
 
-        <p class="lede">
-          <b>Distance</b> is the total length of the path traveled by an object, regardless of direction. it is a scalar quantity, meaning it only has magnitude and no direction.
-        </p>
-
-        <!-- Right-side diagram -->
-        <figure class="fig-left">
+        <div class="callout definition">
+<p><b>Distance</b> is the total length of the path traveled by an object, regardless of direction. it is a scalar quantity, meaning it only has magnitude and no direction.</p>
+</div>
+        <figure class="trim">
             <img src="/mod_diagrams/point_with_ref.svg" alt="Two points on a line" />
             <figcaption class="muted">Fig 2: Position of point P relative to $O$ in an one dimensional space</figcaption>
         </figure>
-        <p class="lede">
-          <b>Displacement</b>, on the other hand, is the shortest straight-line path between the initial and final positions of an object. It is a vector quantity, which means it has both magnitude and direction.
-        </p>
+        <div class="callout definition">
+<p><b>Displacement</b>, on the other hand, is the shortest straight-line path between the initial and final positions of an object. It is a vector quantity, which means it has both magnitude and direction.</p>
+</div>
 
-        <p class="lede">
+        <p>
           The S.I. unit for both distance and displacement is the meter ($m$).
         </p>
 
-        <figure class="fig-right">
+        <figure>
             <img src="/mod_diagrams/ex1.svg" alt="Motion in 1D" />
             <figcaption class="muted">Fig 3: Displacement of $P$ relative to $O$: $-x_2$. Total distance traveled by $P$: $x_1 + x_2$.</figcaption>
         </figure>
 
-        <p class="lede">
+        <p>
           For example, overlay a coordinate system on the line such that point $O$ is at the origin (Fig 3). Suppose point $P$ initially at the origin moves $x_1$ units to the right of point $O$ and then moves to a new position $x_2$ units to the left of point $O$. In this case, the <b>distance</b> traveled by point $P$ is $x_1 + x_2$ units. However, the <b>displacement</b> of point $P$ is given by the difference between its final and initial positions, which is $-x_2 - 0 = -x_2$ units (negative sign indicates direction to the left).
         </p>
-        
-        <!-- Example 1 -->
-        <p class="lede">
-          <b>Example 1: </b> Suppose a particle moves from $x=0m$ to $x=5m$.
-
-          <ul class="lede">
+        <div class="callout example">
+<p class="callout-label">Example 1</p>
+<p>Suppose a particle moves from $x=0m$ to $x=5m$.</p>
+<ul>
             <li>Distance traveled: $5m$.</li>
             <li>Displacement: final position - initial position $=5m - 0m$ $= 5m$.</li>
           </ul>
-        </p>
-
-        <!-- Example 2 -->
-         <p class="lede">
-          <b> Example 2: </b> Suppose a car moves from $x_0=0m$ to $x_1=8m$, then reverses the direction and moves to $x_2=-5m$.
-
-          <ul class="lede">
+</div>
+         <div class="callout example">
+<p class="callout-label">Example 2</p>
+<p>Suppose a car moves from $x_0=0m$ to $x_1=8m$, then reverses the direction and moves to $x_2=-5m$.</p>
+<ul>
             <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|=$ $|8m - 0m| + |-5m - 8m| =$ $8m + 13m = 21m$.</li>
             <li>Displacement: final position - initial position $= x_2 - x_0 =$ $-5m - 0m = -5m$.</li>
           </ul>
-         </p>
+</div>
 
-         <p class="lede">
-          <b>Example 3: </b> Suppose the car in Example 2 was initially at $x_0 = 3m$ instead of $x_0 = 0m$.
-
-          <ul class="lede">
+         <div class="callout example">
+<p class="callout-label">Example 3</p>
+<p>Suppose the car in Example 2 was initially at $x_0 = 3m$ instead of $x_0 = 0m$.</p>
+<ul>
             <li>Distance traveled: $|x_1 - x_0| + |x_2 - x_1|=$ $|8m - 3m| + |-5m - 8m| =$ $5m + 13m = 18m$.</li>
             <li>Displacement: final position - initial position $= x_2 - x_0 =$ $-5m - 3m = -8m$.</li>
           </ul>
+</div>
 
-         </p>
-
-         <p class="lede">
+         <p>
           Therefore, in mathematical terms, the displacement $\Delta x$ of an object moving from an initial position $x_i$ to a final position $x_f$ is given by:
           $$\Delta x = x_f - x_i$$
          </p>
 
-      </div>
-
-      
     </section>
 
-    <section id="chapter 2" class="section-note">
-      <div class="trig-copy">
+    <section id="chapter 2" class="chapter">
         <h2>2. Speed & Velocity</h2>
-        <p class="lede">
+        <p>
           In the previous section, we learned that distance and displacement describe how far an object moves. To describe how fast the motion occurs, we introduce <b>speed</b> and <b>velocity</b>.
         </p>
-        <p class="lede">
-          <b style="font-size:20px">Speed</b> is the rate at which an object covers distance. It tells us how fast an object is moving, regardless of its direction. Mathematically, speed $s$ is defined as the total distance $d$ traveled divided by the time $t$ taken to travel that distance:
+        <div class="callout definition">
+<p><b>Speed</b> is the rate at which an object covers distance. It tells us how fast an object is moving, regardless of its direction. Mathematically, speed $s$ is defined as the total distance $d$ traveled divided by the time $t$ taken to travel that distance:
           
           $$s = \frac{d}{t}$$
 
-          Since distance is a scalar quantity, and distance traveled is always positive, speed is also a scalar quantity and is always non-negative.
-        </p>
-        <p class="lede">
-          <b style="font-size:20px">Velocity</b> is the rate of change of displacement with respect to time. It tells us how fast an object is moving in a specific direction. For instance, if by convention, we consider rightward motion as positive and leftward motion as negative, then velocity can be positive or negative based on the direction of motion. Mathematically, velocity $v$ is defined as the displacement $\Delta x$ divided by the time interval $\Delta t$ during which the displacement occurs:
+          Since distance is a scalar quantity, and distance traveled is always positive, speed is also a scalar quantity and is always non-negative.</p>
+</div>
+        <div class="callout definition">
+<p><b>Velocity</b> is the rate of change of displacement with respect to time. It tells us how fast an object is moving in a specific direction. For instance, if by convention, we consider rightward motion as positive and leftward motion as negative, then velocity can be positive or negative based on the direction of motion. Mathematically, velocity $v$ is defined as the displacement $\Delta x$ divided by the time interval $\Delta t$ during which the displacement occurs:
 
           $$v = \frac{\Delta x}{\Delta t}$$
 
-          Because displacement is a vector quantity, velocity is also a vector quantity. Therefore, at any given instant, the velocity of an object represents both its speed and the direction of its motion.
-        </p>
+          Because displacement is a vector quantity, velocity is also a vector quantity. Therefore, at any given instant, the velocity of an object represents both its speed and the direction of its motion.</p>
+</div>
 
-        <h2>S.I. unit of Speed & Velocity</h2>
-        <p class="lede">
+        <h3>S.I. unit of Speed & Velocity</h3>
+        <p>
           The S.I. unit for time is the second ($s$). And from chapter 1, we know that the S.I. unit for both distance and displacement is the meter ($m$). To obtain the S.I. unit for speed and velocity, we can substitue these units into the above definitions. Therefore, the S.I. unit for speed is,
 
           $$[s] = \frac{[d]}{[t]} = \frac{m}{s}$$
 
           Similarly, the S.I. unit for velocity is $m/s$.
         </p>
-        <h2>Average and Instantaneous Velocity</h2>
-        <p class="lede">
+        <h3>Average and Instantaneous Velocity</h3>
+        <p>
           The velocity of an object can vary with time. To describe its motion more precisely, we define two related quantities: <b>average velocity</b> and <b>instantaneous velocity</b>.
         </p>
 
-        <p class="lede">
-          <b>Average Velocity:</b> It is the net displacement divided by the total time taken for that displacement. If a particle moves from an initial position $x_i$ to a final position $x_f$ in a time interval $\Delta t = t_f - t_i$, then
+        <div class="callout definition">
+<p><b>Average Velocity:</b> It is the net displacement divided by the total time taken for that displacement. If a particle moves from an initial position $x_i$ to a final position $x_f$ in a time interval $\Delta t = t_f - t_i$, then
           $$v_{avg} = \frac{x_f - x_i}{t_f - t_i} = \frac{\Delta x}{\Delta t}$$
-          Average velocity gives an overall rate of motion during the interval, but it does not describe the motion at any specific instant.
-        </p>
+          Average velocity gives an overall rate of motion during the interval, but it does not describe the motion at any specific instant.</p>
+</div>
 
-        <p class="lede">
-          <b>Instantaneous Velocity:</b> It represents the velocity of an object at a particular instant of time. Mathematically, it is obtained as the limit of the average velocity as the time interval approaches zero:
+        <div class="callout definition">
+<p><b>Instantaneous Velocity:</b> It represents the velocity of an object at a particular instant of time. Mathematically, it is obtained as the limit of the average velocity as the time interval approaches zero:
           $$v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{dx}{dt}$$
-          Instantaneous velocity provides the most accurate description of how fast and in which direction an object is moving at a given moment.
-        </p>
-      </div>
+          Instantaneous velocity provides the most accurate description of how fast and in which direction an object is moving at a given moment.</p>
+</div>
     </section>
 
-    <section id="chapter 3" class="section-note">
-      <div class="trig-copy">
+    <section id="chapter 3" class="chapter">
         <h2>3. Acceleration</h2>
-        <p class="lede">
+        <p>
           In the previous chapter, we learned that velocity describes how fast and in what direction an object is moving. However, in many cases, the velocity of an object changes over time — either in magnitude, in direction, or both. The rate at which this change occurs is known as <b>acceleration</b>.
         </p>
 
-        <p class="lede">
-          Mathematically, acceleration $a$ is defined as the rate of change of velocity with respect to time:
+        <div class="callout definition">
+<p>Mathematically, acceleration $a$ is defined as the rate of change of velocity with respect to time:
           $$a = \frac{\Delta v}{\Delta t} = \frac{v_f - v_i}{t_f - t_i}$$
-          where $v_i$ and $v_f$ are the initial and final velocities, respectively, and $\Delta t = t_f - t_i$ is the time interval during which the change occurs.
-        </p>
+          where $v_i$ and $v_f$ are the initial and final velocities, respectively, and $\Delta t = t_f - t_i$ is the time interval during which the change occurs.</p>
+</div>
 
-        <p class="lede">
+        <p>
           Acceleration is a <b>vector quantity</b>. It has both magnitude and direction. If velocity increases with time, the acceleration is positive (often called <b>acceleration</b> in common terms). If velocity decreases with time, the acceleration is negative and is commonly referred to as <b>deceleration</b>.
         </p>
 
-        <h2>S.I. unit of Acceleration</h2>
-        <p class="lede">
+        <h3>S.I. unit of Acceleration</h3>
+        <p>
           From the definition above, acceleration is velocity divided by time. Since the S.I. unit of velocity is $m/s$ and that of time is $s$, the S.I. unit of acceleration is:
           $$[a] = \frac{[v]}{[t]} = \frac{m/s}{s} = m/s^2$$
         </p>
 
-        <h2>Average and Instantaneous Acceleration</h2>
-        <p class="lede">
-          <b>Average acceleration:</b> The total change in velocity divided by the total time taken.
-          $$a_{avg} = \frac{v_f - v_i}{t_f - t_i}$$
-          <b>Instantaneous acceleration:</b> The acceleration of an object at a particular instant of time. Mathematically, it is given by the derivative of velocity with respect to time:
-          $$a = \frac{dv}{dt}$$
-        </p>
+        <h3>Average and Instantaneous Acceleration</h3>
+        <div class="callout definition">
+<p><b>Average acceleration:</b> The total change in velocity divided by the total time taken.
+          $$a_{avg} = \frac{v_f - v_i}{t_f - t_i}$$</p>
+</div>
+<div class="callout definition">
+<p><b>Instantaneous acceleration:</b> The acceleration of an object at a particular instant of time. Mathematically, it is given by the derivative of velocity with respect to time:
+          $$a = \frac{dv}{dt}$$</p>
+</div>
 
-        <h2>Examples</h2>
+        <h3>Examples</h3>
 
-        <p class="lede">
-          <b>Example 1:</b> A car increases its velocity from $10\,m/s$ to $25\,m/s$ in $5\,s$.
-          <ul class="lede">
+        <div class="callout example">
+<p class="callout-label">Example 1</p>
+<p>A car increases its velocity from $10\,m/s$ to $25\,m/s$ in $5\,s$.</p>
+<ul>
             <li>Change in velocity, $\Delta v = 25 - 10 = 15\,m/s$</li>
             <li>Time interval, $\Delta t = 5\,s$</li>
             <li>Acceleration, $a = \frac{\Delta v}{\Delta t} = \frac{15}{5} = 3\,m/s^2$</li>
           </ul>
-        </p>
+</div>
 
-        <p class="lede">
-          <b>Example 2:</b> A car moving at $20\,m/s$ slows down uniformly to $5\,m/s$ in $3\,s$.
-          <ul class="lede">
+        <div class="callout example">
+<p class="callout-label">Example 2</p>
+<p>A car moving at $20\,m/s$ slows down uniformly to $5\,m/s$ in $3\,s$.</p>
+<ul>
             <li>Change in velocity, $\Delta v = 5 - 20 = -15\,m/s$</li>
             <li>Acceleration, $a = \frac{-15}{3} = -5\,m/s^2$</li>
           </ul>
-        </p>
-        <p class="lede">
+        <p>
           The negative sign indicates that the acceleration is in the opposite direction to the motion (deceleration).
         </p>
+</div>
 
-        <p class="lede">
-          <b>Example 3:</b> An object moves with a constant velocity of $10\,m/s$ for $8\,s$.
-          <ul class="lede">
+        <div class="callout example">
+<p class="callout-label">Example 3</p>
+<p>An object moves with a constant velocity of $10\,m/s$ for $8\,s$.</p>
+<ul>
             <li>Change in velocity, $\Delta v = 10 - 10 = 0$</li>
             <li>Acceleration, $a = 0$</li>
           </ul>
-        </p>
-        <p class="lede">
+        <p>
           The object experiences zero acceleration since its velocity does not change.
         </p>
+</div>
 
-        <p class="lede">
+        <p>
           Therefore, acceleration describes how the velocity of an object changes with time. When velocity changes uniformly, the acceleration is constant; when velocity changes irregularly, the acceleration is non-uniform.
         </p>
-      </div>
     </section>
 
-    <section id="chapter 4" class="section-note">
-      <div class="trig-copy">
+    <section id="chapter 4" class="chapter">
         <h2>4. Kinematics Equations: Derivation</h2>
 
-        <p class="lede">
+        <p>
         In the previous chapters, we learned about displacement, velocity, and acceleration, and how they describe the motion of an object in one dimension. When the acceleration of an object remains constant, the motion is said to be <b>uniformly accelerated motion</b>. Examples include the free fall of an object near the Earth's surface or a car increasing its speed at a steady rate.
       </p>
 
-      <p class="lede">
+      <p>
         For such motion, there exist simple mathematical relationships that connect the key quantities of motion $-$ displacement ($x$), initial velocity ($u$), final velocity ($v$), acceleration ($a$), and time ($t$). These relationships are known as the <b>kinematic equations of motion</b>.
       </p>
 
-      <p class="lede">
-        In this chapter, we shall derive these equations using two different approaches:
-        <ul class="lede">
+      <p>
+        In this chapter, we shall derive these equations using two different approaches:</p>
+<ul>
           <li><b>Algebraic approach</b>: based on the definitions of velocity and acceleration, and their interrelations.</li>
           <li><b>Calculus approach</b>: using the differential relationships between displacement, velocity, and acceleration.</li>
         </ul>
-      </p>
       
-      <!-- Not written yet: <h2>Deriving $x(t) = x_0 + vt$</h2> -->
-      </div>
+      <!-- Not written yet: <h3>Deriving $x(t) = x_0 + vt$</h3> -->
     </section>
   </Fragment>
 </ArticleLayout>

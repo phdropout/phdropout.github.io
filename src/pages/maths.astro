@@ -1,9 +1,10 @@
 ---
-import TopicLink from '../components/TopicLink.astro';
 import SubjectLayout from '../layouts/SubjectLayout.astro';
 ---
 
 <SubjectLayout subject="maths">
+  <!-- Topics are listed in src/data/site.ts. -->
+
   <!-- Minimal topic chips (no big cards) -->
   <!--
   <section aria-label="Maths topics" class="topics-grid">
@@ -14,16 +15,9 @@ import SubjectLayout from '../layouts/SubjectLayout.astro';
   </section>
   -->
 
-  <!-- Sections (expand later with real content) -->
-
-  <!--<a id="algebra" class="section-note" href="coming_soon.html">
-      <h2>Algebra</h2>
-      <p>Equations, inequalities, functions, polynomials, factoring.</p>
-  </a>-->
-  <TopicLink id="trigonometry" href="/maths-trig.html" title="Trigonometry">
-    <!--<p>Unit circle • Sine, Cosine and Tangent • Basic trigonometric identities</p>-->
-  </TopicLink>
-  <TopicLink id="vectors" href="/maths-vectors.html" title="Vectors">
-    <!--<p>Vector definition • Vector operations • Dot product • Cross product</p>-->
-  </TopicLink>
+  <!-- Draft topic notes:
+    Algebra: Equations, inequalities, functions, polynomials, factoring.
+    Trigonometry: Unit circle • Sine, Cosine and Tangent • Basic trigonometric identities
+    Vectors: Vector definition • Vector operations • Dot product • Cross product
+  -->
 </SubjectLayout>

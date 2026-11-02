@@ -1,7 +1,7 @@
 ---
 import Breadcrumb from '../components/Breadcrumb.astro';
 import MathJax from '../components/MathJax.astro';
-import { SITE_NAME, subjects, type SubjectId } from '../data/site';
+import { SITE_NAME, subjects, type SubjectId, type Topic } from '../data/site';
 import BaseLayout from './BaseLayout.astro';
 
 interface TocEntry {
@@ -12,33 +12,60 @@ interface TocEntry {
 
 interface Props {
   subject: SubjectId;
-  /** Page heading (h1), also used in the breadcrumb. */
-  title: string;
-  /** Browser tab title, if it should differ from the heading. */
-  tabTitle?: string;
-  subtitle?: string;
+  /** The topic's id in src/data/site.ts, which supplies its title and summary. */
+  topic: string;
   toc: TocEntry[];
 }
 
-const { subject, title, tabTitle = title, subtitle, toc } = Astro.props;
+const { subject, topic: topicId, toc } = Astro.props;
+const { label, href } = subjects[subject];
+const topics: Topic[] = subjects[subject].topics;
+
+const index = topics.findIndex((entry) => entry.id === topicId);
+if (index === -1) throw new Error(`No topic "${topicId}" under "${subject}" in src/data/site.ts`);
+
+const topic = topics[index];
+const previous = topics[index - 1];
+const next = topics[index + 1];
 ---
 
-<BaseLayout title={`${tabTitle} — ${SITE_NAME}`} activeSubject={subject}>
+<BaseLayout title={`${topic.tabTitle ?? topic.title} — ${SITE_NAME}`} activeSubject={subject}>
   <MathJax slot="head" />
 
-  <Breadcrumb items={[subjects[subject], { label: title }]} />
+  <Breadcrumb items={[{ label, href }, { label: topic.title }]} />
 
-  <section class="page-header">
-    <h1>{title}</h1>
-    {subtitle && <h2>{subtitle}</h2>}
-  </section>
+  <div class="article-grid">
+    <nav id="toc" class="toc" aria-label="Table of contents">
+      <h2 class="toc-title">Table of contents</h2>
+      <ol>
+        {toc.map((entry) => <li><a href={`#${entry.id}`}>{entry.label}</a></li>)}
+      </ol>
+    </nav>
 
-  <section id="toc" class="section-note" aria-label="Table of contents">
-    <h2>Table of contents</h2>
-    <ol class="bullets" style="margin-top:8px;">
-      {toc.map((entry) => <li><a href={`#${entry.id}`}>{entry.label}</a></li>)}
-    </ol>
-  </section>
+    <article class="prose">
+      <header class="article-header">
+        <h1>{topic.title}</h1>
+        <p class="page-subtitle">{topic.summary}</p>
+      </header>
 
-  <slot />
+      <slot />
+
+      {(previous || next) && (
+        <nav class="pager" aria-label={`More ${label}`}>
+          {previous && (
+            <a class="pager-link" href={previous.href}>
+              <span class="pager-label">← Previous</span>
+              <span class="pager-title">{previous.title}</span>
+            </a>
+          )}
+          {next && (
+            <a class="pager-link pager-next" href={next.href}>
+              <span class="pager-label">Next →</span>
+              <span class="pager-title">{next.title}</span>
+            </a>
+          )}
+        </nav>
+      )}
+    </article>
+  </div>
 </BaseLayout>

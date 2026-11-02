@@ -9,56 +9,50 @@ const toc = [
 ];
 ---
 
-<ArticleLayout
-  subject="maths"
-  title="Trigonometry"
-  subtitle="Defining Sine, Cosine, and Tangent."
-  toc={toc}
->
-  <!-- is:raw stops Astro reading the braces in LaTeX as template expressions. -->
+<ArticleLayout subject="maths" topic="trigonometry" toc={toc}>
+  <!--
+    is:raw stops Astro reading the braces in LaTeX as template expressions.
+    The classes available for this content are listed at the top of public/styles.css.
+  -->
   <Fragment is:raw>
     <!-- 1. Sine & Cosecant (Right Triangle) -->
 
-    <section id="chapter 1" class="section-note">
-      <div class="trig-copy">
+    <section id="chapter 1" class="chapter">
         <h2>1. Sine & Cosecant</h2>
-        <p class="lede">
+        <p>
           Consider a right triangle such that the side $AB$ stands perpendicular on side $BC$ while the hypotenuse $AC$ makes an angle $\theta$ with the base.
         </p>
-        <!-- Right-side diagram -->
-      <figure class="fig-left">
+      <figure>
         <img src="/trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
         <figcaption class="muted">Fig 1: Right triangle for defining trig ratios.</figcaption>
       </figure>
         <!-- sine -->
-        <p class="lede">
-          By definition, the sine of $\theta$ in the given right triangle is the ratio of the side opposite to the angle ($AB$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
-          $$\sin\theta=\frac{\text{opposite}}{\text{hypotenuse}} = \frac{AB}{AC}$$
-        </p>
+        <div class="callout definition">
+<p>By definition, the sine of $\theta$ in the given right triangle is the ratio of the side opposite to the angle ($AB$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
+          $$\sin\theta=\frac{\text{opposite}}{\text{hypotenuse}} = \frac{AB}{AC}$$</p>
+</div>
         <!-- cosecant -->
-        <p class="lede">
+        <p>
           The reciprocal of sine is called cosecant, denoted $\csc\theta$:
           $$\begin{align} 
           \csc \theta &= \frac{1}{\sin\theta} \\
                       &= \frac{\text{hypotenuse}}{\text{opposite}}\\
                       &= \frac{AC}{AB}
           \end{align}$$
-          $$\boxed{\therefore \csc \theta = \frac{AC}{AB}}$$
-        </p>
-      </div>
+          </p>
+          <div class="result">$$\therefore \csc \theta = \frac{AC}{AB}$$</div>
 
-      
     </section>
 
     <!-- 2. Cosine & Secant -->
-    <section id="chapter 2" class="section-note">
+    <section id="chapter 2" class="chapter">
       <h2>2. Cosine & Secant</h2>
-      <p class="lede">
-        By definition, the cosine of $\theta$ in the above right triangle is the ratio of the side adjacent to the angle ($BC$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
-        $$\Rightarrow \cos\theta=\frac{\text{adjacent}}{\text{hypotenuse}} = \frac{BC}{AC}$$
-      </p>
+      <div class="callout definition">
+<p>By definition, the cosine of $\theta$ in the above right triangle is the ratio of the side adjacent to the angle ($BC$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
+        $$\Rightarrow \cos\theta=\frac{\text{adjacent}}{\text{hypotenuse}} = \frac{BC}{AC}$$</p>
+</div>
 
-      <p class="lede">
+      <p>
         The Secant of $\theta$ is the reciprocal of cosine:
 
         $$\begin{align} 
@@ -67,16 +61,15 @@ const toc = [
                     &= \frac{AC}{BC}
         \end{align}$$
 
-        $$\boxed{\therefore \sec \theta = \frac{AC}{BC}}$$
-      </p>
-      <!-- (Add your own notes/examples here) -->
-    </section>
+        </p>
+        <div class="result">$$\therefore \sec \theta = \frac{AC}{BC}$$</div>
+            </section>
 
     <!-- 3. Tangent & Cotangent -->
-    <section id="chapter 3" class="section-note">
+    <section id="chapter 3" class="chapter">
       <h2>3. Tangent & Cotangent</h2>
-      <p class="lede">
-        By definition, the tangent of $\theta$ in the above right triangle is the ration of the side opposite to the angle to the side adjacent to the angle:
+      <div class="callout definition">
+<p>By definition, the tangent of $\theta$ in the above right triangle is the ration of the side opposite to the angle to the side adjacent to the angle:
         $$\Rightarrow \tan \theta = \frac{\text{opposite}}{\text{adjacent}} = \frac{\text{height}}{\text{base}}$$
         $$\Rightarrow \tan \theta = \frac{AB}{BC}$$
 
@@ -86,11 +79,10 @@ const toc = [
         \tan \theta &= \frac{AB}{BC}\\
                     &= \frac{AB/AC}{BC/AC}\\
                     &= \frac{\sin \theta}{\cos \theta}
-        \end{align}$$
-
-        $$\boxed{\therefore \tan \theta = \frac{\sin \theta}{\cos \theta}}$$
-      </p>
-      <p class="lede">
+        \end{align}$$</p>
+</div>
+        <div class="result">$$\therefore \tan \theta = \frac{\sin \theta}{\cos \theta}$$</div>
+              <p>
         The Cotangent of $\theta$ is simply the reciprocal of tangent:
         $$\Rightarrow \cot \theta = \frac{1}{\tan \theta}$$
 
@@ -100,21 +92,20 @@ const toc = [
         And, in terms of sine and cosine:
         $$\cot \theta = \frac{\cos \theta}{\sin \theta}$$
       </p>
-      <!-- (Add your own notes/examples here) -->
     </section>
 
     <!-- 4. Derivation: sin²θ + cos²θ = 1 -->
-    <section id="chapter 4" class="section-note">
+    <section id="chapter 4" class="chapter">
       <h2>4. Trigonometric identities</h2>
       <h3>$\Rightarrow \sin^2 \theta + \cos^2 \theta = 1:$</h3>
-      <!--<p class="lede">
+      <!--<p>
         From similar triangles or the Pythagorean Theorem on a right triangle with sides
         $(\text{adjacent}, \text{opposite}, \text{hypotenuse})$,
         $$\left(\frac{\text{adjacent}}{\text{hypotenuse}}\right)^2
           + \left(\frac{\text{opposite}}{\text{hypotenuse}}\right)^2
           = 1 \;\;\Rightarrow\;\; \cos^2\theta + \sin^2\theta = 1.$$
       </p>-->
-      <p class="lede">
+      <p>
         Using the Pythagorean Theorem on the right triangle in Fig 1, we have:
         $$AB^2 + BC^2 = AC^2$$
 
@@ -125,15 +116,17 @@ const toc = [
 
         From the definitions of sine and cosine, we know that $\frac{AB}{AC} = \sin \theta$ and $\frac{BC}{AC} = \cos \theta$. Substituting these into the above equation, we get:
 
-        $$\boxed{\sin^2 \theta + \cos^2 \theta = 1}$$
+        </p>
+        <div class="result">$$\sin^2 \theta + \cos^2 \theta = 1$$</div>
+        <p>
 
         The above identity can be rearranged to get the following forms:
-        $$\boxed{\cos^2 \theta = 1 - \sin^2 \theta}$$
-        $$\boxed{\sin^2\theta = 1 - \cos^2\theta}$$
-      </p>
-
+        </p>
+        <div class="result">$$\cos^2 \theta = 1 - \sin^2 \theta$$</div>
+                <div class="result">$$\sin^2\theta = 1 - \cos^2\theta$$</div>
+        
       <h3>$\Rightarrow \tan^2 \theta + 1 = \sec^2\theta:$</h3>
-      <p class="lede">
+      <p>
         Starting from the Pythagorean identity $\sin^2 \theta + \cos^2 \theta = 1$, we can derive the identity involving tangent and secant by diving each side by $\cos^2 \theta$ as shown below:
 
         $$\begin{align} 
@@ -142,17 +135,17 @@ const toc = [
         \therefore \frac{\sin^2 \theta}{\cos^2 \theta} + \frac{\cos^2 \theta}{\cos^2 \theta} &= \frac{1}{\cos^2 \theta}
         \end{align}$$
 
-        $$\therefore \boxed{\tan^2 \theta + 1 = \sec^2 \theta}$$
-      </p>
-
+        </p>
+        <div class="result">$$\therefore \tan^2 \theta + 1 = \sec^2 \theta$$</div>
+        
       <h3>$\Rightarrow 1 + \cot^2\theta = \csc^2\theta:$</h3>
-      <p class="lede">
+      <p>
         In the previous derivation we divided the Pythagorean identity by $\cos^2 \theta$. Let us now divide the same identity by $\sin^2 \theta$. This gives:
 
         $$\frac{\sin^2 \theta}{\sin^2 \theta} + \frac{\cos^2 \theta}{\sin^2 \theta} = \frac{1}{\sin^2 \theta}$$
 
-        $$\therefore \boxed{1 + \cot^2 \theta = \csc^2 \theta}$$
-      </p>
-    </section>
+        </p>
+        <div class="result">$$\therefore 1 + \cot^2 \theta = \csc^2 \theta$$</div>
+            </section>
   </Fragment>
 </ArticleLayout>

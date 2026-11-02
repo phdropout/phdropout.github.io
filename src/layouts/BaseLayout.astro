@@ -16,6 +16,14 @@ const { title, activeSubject } = Astro.props;
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
+    <!-- Apply the saved theme before anything paints, so dark mode doesn't flash light. -->
+    <script is:inline>
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+      } catch (e) {}
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3"></script>
     <script is:inline>
@@ -32,9 +40,10 @@ const { title, activeSubject } = Astro.props;
     <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298" crossorigin="anonymous"></script>
     <title>{title}</title>
 
-    <!-- Font (Inter) -->
+    <!-- Fonts: Inter for interface text, Source Serif 4 for reading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/styles.css" />
     <slot name="head" />

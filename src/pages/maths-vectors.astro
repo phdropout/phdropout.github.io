@@ -13,16 +13,14 @@ const toc = [
 ];
 ---
 
-<ArticleLayout
-  subject="maths"
-  title="Vectors"
-  subtitle="Definitions, operations, dot & cross products, projections, and identities"
-  toc={toc}
->
-  <!-- is:raw stops Astro reading the braces in LaTeX as template expressions. -->
+<ArticleLayout subject="maths" topic="vectors" toc={toc}>
+  <!--
+    is:raw stops Astro reading the braces in LaTeX as template expressions.
+    The classes available for this content are listed at the top of public/styles.css.
+  -->
   <Fragment is:raw>
     <!-- 1. Intro -->
-    <section id="intro" class="section-note">
+    <section id="intro" class="chapter">
       <h2>1. What is a vector?</h2>
       <p>
         A vector represents a quantity with <em>magnitude</em> and <em>direction</em>. In $\mathbb{R}^n$ we write
@@ -32,9 +30,9 @@ const toc = [
     </section>
 
     <!-- 2. Notation & components -->
-    <section id="notation" class="section-note">
+    <section id="notation" class="chapter">
       <h2>2. Notation & components</h2>
-      <ul class="bullets">
+      <ul>
         <li>Vectors in <strong>bold</strong> (e.g., $\mathbf{v}$); scalars in roman (e.g., $a$).</li>
         <li>2D: $\mathbf{v}=(v_x, v_y)$; 3D: $\mathbf{v}=(v_x, v_y, v_z)$ with basis $\{\mathbf{i},\mathbf{j},\mathbf{k}\}$.</li>
         <li>Unit vector: $\hat{\mathbf{v}} = \dfrac{\mathbf{v}}{\lVert \mathbf{v} \rVert}$ (if $\mathbf{v}\neq \mathbf{0}$).</li>
@@ -42,7 +40,7 @@ const toc = [
     </section>
 
     <!-- 3. Basic operations -->
-    <section id="ops" class="section-note">
+    <section id="ops" class="chapter">
       <h2>3. Basic operations</h2>
       <p><strong>Addition:</strong> $\ \mathbf{u}+\mathbf{v} = (u_x+v_x,\, u_y+v_y,\, u_z+v_z)$.</p>
       <p><strong>Scalar multiplication:</strong> $\ a\mathbf{v} = (a v_x,\, a v_y,\, a v_z)$ for $a\in\mathbb{R}$.</p>
@@ -50,18 +48,18 @@ const toc = [
     </section>
 
     <!-- 4. Dot product -->
-    <section id="dot" class="section-note">
+    <section id="dot" class="chapter">
       <h2>4. Dot product</h2>
       <p>
         Algebraic: $\ \mathbf{u}\cdot\mathbf{v} = u_x v_x + u_y v_y + u_z v_z = \sum_{i=1}^n u_i v_i.$
         Geometric: $\ \mathbf{u}\cdot\mathbf{v} = \lVert \mathbf{u} \rVert \,\lVert \mathbf{v} \rVert \cos\theta$,
         where $\theta$ is the angle between $\mathbf{u}$ and $\mathbf{v}$.
       </p>
-      <p class="lede" style="margin-top:6px;">Consequences: Cauchy–Schwarz $\ \lvert \mathbf{u}\cdot\mathbf{v}\rvert \le \lVert \mathbf{u}\rVert \,\lVert \mathbf{v}\rVert$ and orthogonality when $\mathbf{u}\cdot\mathbf{v}=0$.</p>
+      <p>Consequences: Cauchy–Schwarz $\ \lvert \mathbf{u}\cdot\mathbf{v}\rvert \le \lVert \mathbf{u}\rVert \,\lVert \mathbf{v}\rVert$ and orthogonality when $\mathbf{u}\cdot\mathbf{v}=0$.</p>
     </section>
 
     <!-- 5. Cross product -->
-    <section id="cross" class="section-note">
+    <section id="cross" class="chapter">
       <h2>5. Cross product (3D)</h2>
       <p>
         The cross product $\ \mathbf{u}\times\mathbf{v}$ is a vector orthogonal to both, with magnitude
@@ -86,7 +84,7 @@ const toc = [
     </section>
 
     <!-- 6. Norms, unit vectors & projection -->
-    <section id="norms" class="section-note">
+    <section id="norms" class="chapter">
       <h2>6. Norms, unit vectors & projection</h2>
       <p>
         Normalize: $\ \hat{\mathbf{v}} = \dfrac{\mathbf{v}}{\lVert\mathbf{v}\rVert}$.
@@ -97,9 +95,9 @@ const toc = [
     </section>
 
     <!-- 7. Useful identities -->
-    <section id="identities" class="section-note">
+    <section id="identities" class="chapter">
       <h2>7. Useful identities</h2>
-      <ul class="bullets">
+      <ul>
         <li>Distributivity: $\ \mathbf{a}\cdot(\mathbf{b}+\mathbf{c})=\mathbf{a}\cdot\mathbf{b}+\mathbf{a}\cdot\mathbf{c}$, and similarly for $\times$.</li>
         <li>Triple product: $\ \mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$ equals the signed volume; cyclic permutations preserve value (up to sign).</li>
         <li>Vector triple product: $\ \mathbf{a}\times(\mathbf{b}\times\mathbf{c})=\mathbf{b}(\mathbf{a}\cdot\mathbf{c})-\mathbf{c}(\mathbf{a}\cdot\mathbf{b})$.</li>
@@ -107,9 +105,9 @@ const toc = [
     </section>
 
     <!-- 8. Exercises -->
-    <section id="exercises" class="section-note">
+    <section id="exercises" class="chapter">
       <h2>8. Exercises</h2>
-      <ol class="bullets">
+      <ol>
         <li>Find the angle between $\mathbf{u}=(2,-1,2)$ and $\mathbf{v}=(1,2,2)$.</li>
         <li>Compute $\mathrm{proj}_{\mathbf{u}}\mathbf{v}$ for $\mathbf{u}=(3,0,4)$ and $\mathbf{v}=(2,1,-1)$.</li>
         <li>Show that $\lVert \mathbf{u}\times\mathbf{v}\rVert^2 = \lVert \mathbf{u}\rVert^2 \lVert \mathbf{v}\rVert^2 - (\mathbf{u}\cdot\mathbf{v})^2$.</li>

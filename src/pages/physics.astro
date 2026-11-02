@@ -1,9 +1,10 @@
 ---
-import TopicLink from '../components/TopicLink.astro';
 import SubjectLayout from '../layouts/SubjectLayout.astro';
 ---
 
 <SubjectLayout subject="physics">
+  <!-- Topics are listed in src/data/site.ts. -->
+
   <!--<p class="lede">Well-structured modules. Short notes. Targeted problems.</p>-->
 
   <!-- Minimal topic chips (no big cards) -->
@@ -16,13 +17,10 @@ import SubjectLayout from '../layouts/SubjectLayout.astro';
   </section>
   -->
 
-  <!-- Sections (expand later with real content) -->
-  <TopicLink id="mechanics" href="/physics-MOD-alg.html" title="Motion in One Dimension">
-    <!--<p>Start with vectors, kinematics in 1D/2D, and Newton's laws. Keep units and diagrams tidy.</p>
-    <ul class="bullets">
-        <li>Derive constant-acceleration formulas from velocity-time area.</li>
-        <li>Energy methods: conservative forces → potential; small oscillations.</li>
-        <li>Angular momentum, central forces, effective potential.</li>
-    </ul>-->
-  </TopicLink>
+  <!-- Draft topic notes:
+    Start with vectors, kinematics in 1D/2D, and Newton's laws. Keep units and diagrams tidy.
+    - Derive constant-acceleration formulas from velocity-time area.
+    - Energy methods: conservative forces → potential; small oscillations.
+    - Angular momentum, central forces, effective potential.
+  -->
 </SubjectLayout>
