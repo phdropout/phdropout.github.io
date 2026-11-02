@@ -1,0 +1,28 @@
+---
+import { SITE_NAME, subjects, type SubjectId } from '../data/site';
+
+interface Props {
+  /** Subject to highlight in the nav. */
+  active?: SubjectId;
+}
+
+const { active } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container header-wrap">
+    <a href="/" class="brand" aria-label={`${SITE_NAME} — Home`}>
+      <img src="/logo/logo.svg" class="brand-logo" alt="" />
+      <span class="brand-text">{SITE_NAME}</span>
+    </a>
+
+    <nav class="nav">
+      {Object.entries(subjects).map(([id, subject]) => (
+        <a class={id === active ? 'active' : undefined} href={subject.href}>{subject.label}</a>
+      ))}
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">
+        <img id="theme-icon" src="/toggles/dark_mode.png" alt="Switch to dark mode" />
+      </button>
+    </nav>
+  </div>
+</header>

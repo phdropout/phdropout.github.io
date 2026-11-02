@@ -1,87 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
 
-    gtag('config', 'G-WVC02428G3');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-adsense-account" content="ca-pub-9655733111830298">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298"
-     crossorigin="anonymous">
-  </script>
-  <title>Trigonometry — Ph.D. Dropout</title>
+const toc = [
+  { id: "chapter 1", label: "Sine & Cosecant" },
+  { id: "chapter 2", label: "Cosine & Secant" },
+  { id: "chapter 3", label: "Tangent & Cotangent" },
+  { id: "chapter 4", label: "Trigonometric identities" },
+];
+---
 
-  <!-- Font + Site CSS -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- MathJax (LaTeX support) -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$','$$'], ['\\[','\\]']],
-        packages: {'[+]': ['physics']}
-      },
-      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
-    };
-  </script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<body class="layout">
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-wrap">
-      <!--<a href="index.html" class="brand">Ph.D. Dropout</a>-->
-        <a href="index.html" class="brand" aria-label="Ph.D. Dropout — Home">
-          <img src="logo/logo.svg" class="brand-logo" alt="" />
-          <span class="brand-text">Ph.D. Dropout</span>
-        </a>
-      <nav class="nav">
-        <a href="physics.html">Physics</a>
-        <a class="active" href="maths.html">Maths</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle light/dark">
-            <img id="theme-icon" src="toggles/dark_mode.png" alt="Switch to dark mode">
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container main-fill">
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-      <a href="index.html">Home</a><span> / </span>
-      <a href="maths.html">Maths</a><span> / </span>
-      <span>Trigonometry</span>
-    </nav>
-
-    <!-- Page header -->
-    <section class="page-header">
-      <h1>Trigonometry</h1>
-      <h2>Defining Sine, Cosine, and Tangent.</h2>
-    </section>
-
-    <!-- Table of contents -->
-    <section id="toc" class="section-note" aria-label="Table of contents">
-      <h2>Table of contents</h2>
-      <ol class="bullets" style="margin-top:8px;">
-        <li><a href="#chapter 1">Sine & Cosecant</a></li>
-        <li><a href="#chapter 2">Cosine & Secant</a></li>
-        <li><a href="#chapter 3">Tangent & Cotangent</a></li>
-        <li><a href="#chapter 4">Trigonometric identities</a></li>
-      </ol>
-    </section>
-
+<ArticleLayout
+  subject="maths"
+  title="Trigonometry"
+  subtitle="Defining Sine, Cosine, and Tangent."
+  toc={toc}
+>
+  <!-- is:raw stops Astro reading the braces in LaTeX as template expressions. -->
+  <Fragment is:raw>
     <!-- 1. Sine & Cosecant (Right Triangle) -->
 
     <section id="chapter 1" class="section-note">
@@ -92,7 +27,7 @@
         </p>
         <!-- Right-side diagram -->
       <figure class="fig-left">
-        <img src="trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
+        <img src="/trig_diagrams/right_triangle.svg" alt="Right triangle with angle θ" />
         <figcaption class="muted">Fig 1: Right triangle for defining trig ratios.</figcaption>
       </figure>
         <!-- sine -->
@@ -219,15 +154,5 @@
         $$\therefore \boxed{1 + \cot^2 \theta = \csc^2 \theta}$$
       </p>
     </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; <span id="current-year"></span> Ph.D. Dropout. 
-    All rights reserved.
-    Last updated: <span id="last-updated"></span></p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  </Fragment>
+</ArticleLayout>

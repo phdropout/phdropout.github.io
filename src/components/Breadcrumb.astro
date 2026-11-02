@@ -1,0 +1,23 @@
+---
+interface Crumb {
+  label: string;
+  /** Omit for the current page. */
+  href?: string;
+}
+
+interface Props {
+  /** Crumbs after "Home", which is always included. */
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumb">
+  <a href="/">Home</a>{items.map((item) => (
+    <>
+      <span> / </span>
+      {item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
+    </>
+  ))}
+</nav>

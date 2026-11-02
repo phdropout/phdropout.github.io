@@ -17,7 +17,7 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', newTheme);
 
   // Change the icon image accordingly
-  themeIcon.src = newTheme === 'dark' ? 'toggles/light_mode.png' : 'toggles/dark_mode.png';
+  themeIcon.src = newTheme === 'dark' ? '/toggles/light_mode.png' : '/toggles/dark_mode.png';
   themeIcon.alt = newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
 });
 
@@ -25,7 +25,7 @@ themeToggle.addEventListener('click', () => {
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   html.setAttribute('data-theme', savedTheme);
-  themeIcon.src = savedTheme === 'dark' ? 'toggles/light_mode.png' : 'toggles/dark_mode.png';
+  themeIcon.src = savedTheme === 'dark' ? '/toggles/light_mode.png' : '/toggles/dark_mode.png';
 }
 
 })();

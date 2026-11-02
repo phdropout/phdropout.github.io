@@ -1,0 +1,17 @@
+---
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_NAME } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={`Coming Soon — ${SITE_NAME}`}>
+  <Breadcrumb items={[{ label: 'Coming soon' }]} />
+
+  <!-- Centered layout -->
+  <section class="coming-wrap" aria-label="Coming soon">
+    <h1>🚧 Content Coming Soon 🚧</h1>
+    <p class="lede">
+      This section is under development. We're crafting detailed, step-by-step explanations to make this topic as clear and intuitive as possible.
+    </p>
+  </section>
+</BaseLayout>

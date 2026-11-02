@@ -1,0 +1,23 @@
+---
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_NAME, subjects, type SubjectId } from '../data/site';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  subject: SubjectId;
+}
+
+const { subject } = Astro.props;
+const { label } = subjects[subject];
+---
+
+<BaseLayout title={`${label} — ${SITE_NAME}`} activeSubject={subject}>
+  <Breadcrumb items={[{ label }]} />
+
+  <section class="page-header">
+    <h1>{label}</h1>
+    <h2>Select a topic to explore</h2>
+  </section>
+
+  <slot />
+</BaseLayout>

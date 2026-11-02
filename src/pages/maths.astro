@@ -1,0 +1,29 @@
+---
+import TopicLink from '../components/TopicLink.astro';
+import SubjectLayout from '../layouts/SubjectLayout.astro';
+---
+
+<SubjectLayout subject="maths">
+  <!-- Minimal topic chips (no big cards) -->
+  <!--
+  <section aria-label="Maths topics" class="topics-grid">
+    <a class="topic-chip" href="#algebra">Algebra</a>
+    <a class="topic-chip" href="#calculus">Calculus</a>
+    <a class="topic-chip" href="#linear-algebra">Linear Algebra</a>
+    <a class="topic-chip" href="#probability">Probability</a>
+  </section>
+  -->
+
+  <!-- Sections (expand later with real content) -->
+
+  <!--<a id="algebra" class="section-note" href="coming_soon.html">
+      <h2>Algebra</h2>
+      <p>Equations, inequalities, functions, polynomials, factoring.</p>
+  </a>-->
+  <TopicLink id="trigonometry" href="/maths-trig.html" title="Trigonometry">
+    <!--<p>Unit circle • Sine, Cosine and Tangent • Basic trigonometric identities</p>-->
+  </TopicLink>
+  <TopicLink id="vectors" href="/coming_soon.html" title="Vectors">
+    <!--<p>Vector definition • Vector operations • Dot product • Cross product</p>-->
+  </TopicLink>
+</SubjectLayout>
