@@ -8,11 +8,11 @@ interface Props {
 }
 
 const { subject } = Astro.props;
-const { label } = subjects[subject];
+const { label, description } = subjects[subject];
 const topics: Topic[] = subjects[subject].topics;
 ---
 
-<BaseLayout title={`${label} — ${SITE_NAME}`} activeSubject={subject}>
+<BaseLayout title={`${label} — ${SITE_NAME}`} description={description} activeSubject={subject}>
   <Breadcrumb items={[{ label }]} />
 
   <section class="page-header">

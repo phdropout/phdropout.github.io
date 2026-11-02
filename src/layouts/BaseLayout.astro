@@ -1,16 +1,22 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import type { SubjectId } from '../data/site';
+import { SITE_NAME, type SubjectId } from '../data/site';
 
 interface Props {
   /** Full text of the browser tab title. */
   title: string;
+  /** Shown under the page's link in search results. */
+  description: string;
   /** Subject to highlight in the header nav. */
   activeSubject?: SubjectId;
 }
 
-const { title, activeSubject } = Astro.props;
+const { title, description, activeSubject } = Astro.props;
+
+// The one address search engines should use for this page, since GitHub Pages
+// also serves it without the .html ending.
+const canonicalUrl = new URL(Astro.url.pathname.replace(/index\.html$/, ''), Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -39,6 +45,17 @@ const { title, activeSubject } = Astro.props;
     <meta name="google-adsense-account" content="ca-pub-9655733111830298" />
     <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298" crossorigin="anonymous"></script>
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- How the page appears when shared -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
 
     <!-- Fonts: Inter for interface text, Source Serif 4 for reading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

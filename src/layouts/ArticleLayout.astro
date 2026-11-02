@@ -29,7 +29,7 @@ const previous = topics[index - 1];
 const next = topics[index + 1];
 ---
 
-<BaseLayout title={`${topic.tabTitle ?? topic.title} — ${SITE_NAME}`} activeSubject={subject}>
+<BaseLayout title={`${topic.tabTitle ?? topic.title} — ${SITE_NAME}`} description={topic.description} activeSubject={subject}>
   <MathJax slot="head" />
 
   <Breadcrumb items={[{ label, href }, { label: topic.title }]} />

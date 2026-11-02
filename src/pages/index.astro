@@ -1,12 +1,12 @@
 ---
-import { SITE_NAME, subjects } from '../data/site';
+import { SITE_DESCRIPTION, SITE_NAME, subjects } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // The first topic of each subject is where a new reader should begin.
 const startHere = Object.values(subjects).map((subject) => subject.topics[0]);
 ---
 
-<BaseLayout title={`${SITE_NAME} — Learn Simply`}>
+<BaseLayout title={`${SITE_NAME} — Learn Simply`} description={SITE_DESCRIPTION}>
   <section class="hero">
     <div class="hero-copy">
       <h1>Welcome to <span class="quiet">Ph.D. Dropout</span></h1>
