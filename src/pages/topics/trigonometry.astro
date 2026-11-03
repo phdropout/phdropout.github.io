@@ -1,15 +1,15 @@
 ---
-import ArticleLayout from '../layouts/ArticleLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 const toc = [
-  { id: "chapter 1", label: "Sine & Cosecant" },
-  { id: "chapter 2", label: "Cosine & Secant" },
-  { id: "chapter 3", label: "Tangent & Cotangent" },
-  { id: "chapter 4", label: "Trigonometric identities" },
+  { id: "sine-and-cosecant", label: "Sine & Cosecant" },
+  { id: "cosine-and-secant", label: "Cosine & Secant" },
+  { id: "tangent-and-cotangent", label: "Tangent & Cotangent" },
+  { id: "trigonometric-identities", label: "Trigonometric identities" },
 ];
 ---
 
-<ArticleLayout subject="maths" topic="trigonometry" toc={toc}>
+<ArticleLayout section="topics" article="trigonometry" toc={toc}>
   <!--
     is:raw stops Astro reading the braces in LaTeX as template expressions.
     The classes available for this content are listed at the top of public/styles.css.
@@ -17,7 +17,7 @@ const toc = [
   <Fragment is:raw>
     <!-- 1. Sine & Cosecant (Right Triangle) -->
 
-    <section id="chapter 1" class="chapter">
+    <section id="sine-and-cosecant" class="chapter">
         <h2>1. Sine & Cosecant</h2>
         <p>
           Consider a right triangle such that the side $AB$ stands perpendicular on side $BC$ while the hypotenuse $AC$ makes an angle $\theta$ with the base.
@@ -45,7 +45,7 @@ const toc = [
     </section>
 
     <!-- 2. Cosine & Secant -->
-    <section id="chapter 2" class="chapter">
+    <section id="cosine-and-secant" class="chapter">
       <h2>2. Cosine & Secant</h2>
       <div class="callout definition">
 <p>By definition, the cosine of $\theta$ in the above right triangle is the ratio of the side adjacent to the angle ($BC$ in this case) to the hypotenuse of the triangle ($AC$ in this case):
@@ -66,7 +66,7 @@ const toc = [
             </section>
 
     <!-- 3. Tangent & Cotangent -->
-    <section id="chapter 3" class="chapter">
+    <section id="tangent-and-cotangent" class="chapter">
       <h2>3. Tangent & Cotangent</h2>
       <div class="callout definition">
 <p>By definition, the tangent of $\theta$ in the above right triangle is the ratio of the side opposite to the angle to the side adjacent to the angle:
@@ -95,7 +95,7 @@ const toc = [
     </section>
 
     <!-- 4. Derivation: sin²θ + cos²θ = 1 -->
-    <section id="chapter 4" class="chapter">
+    <section id="trigonometric-identities" class="chapter">
       <h2>4. Trigonometric identities</h2>
       <h3>$\Rightarrow \sin^2 \theta + \cos^2 \theta = 1:$</h3>
       <!--<p>

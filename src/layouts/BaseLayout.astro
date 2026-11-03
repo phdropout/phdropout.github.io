@@ -1,22 +1,21 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_NAME, type SubjectId } from '../data/site';
+import { SITE_NAME, type SectionId } from '../data/site';
 
 interface Props {
   /** Full text of the browser tab title. */
   title: string;
   /** Shown under the page's link in search results. */
   description: string;
-  /** Subject to highlight in the header nav. */
-  activeSubject?: SubjectId;
+  /** Section to highlight in the header nav. */
+  activeSection?: SectionId;
 }
 
-const { title, description, activeSubject } = Astro.props;
+const { title, description, activeSection } = Astro.props;
 
-// The one address search engines should use for this page, since GitHub Pages
-// also serves it without the .html ending.
-const canonicalUrl = new URL(Astro.url.pathname.replace(/index\.html$/, ''), Astro.site).href;
+// The one address search engines should use for this page.
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -66,7 +65,7 @@ const canonicalUrl = new URL(Astro.url.pathname.replace(/index\.html$/, ''), Ast
     <slot name="head" />
   </head>
   <body class="layout">
-    <Header active={activeSubject} />
+    <Header active={activeSection} />
 
     <main class="container main-fill">
       <slot />

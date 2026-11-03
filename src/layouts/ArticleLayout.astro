@@ -1,38 +1,38 @@
 ---
 import Breadcrumb from '../components/Breadcrumb.astro';
 import MathJax from '../components/MathJax.astro';
-import { SITE_NAME, subjects, type SubjectId, type Topic } from '../data/site';
+import { SITE_NAME, sections, type Article, type SectionId } from '../data/site';
 import BaseLayout from './BaseLayout.astro';
 
 interface TocEntry {
-  /** Id of the section to jump to, without the leading "#". */
+  /** Id of the part of the article to jump to, without the leading "#". */
   id: string;
   label: string;
 }
 
 interface Props {
-  subject: SubjectId;
-  /** The topic's id in src/data/site.ts, which supplies its title and summary. */
-  topic: string;
+  section: SectionId;
+  /** The article's id in src/data/site.ts, which supplies its title and summary. */
+  article: string;
   toc: TocEntry[];
 }
 
-const { subject, topic: topicId, toc } = Astro.props;
-const { label, href } = subjects[subject];
-const topics: Topic[] = subjects[subject].topics;
+const { section, article: articleId, toc } = Astro.props;
+const { label, href } = sections[section];
+const articles: Article[] = sections[section].articles;
 
-const index = topics.findIndex((entry) => entry.id === topicId);
-if (index === -1) throw new Error(`No topic "${topicId}" under "${subject}" in src/data/site.ts`);
+const index = articles.findIndex((entry) => entry.id === articleId);
+if (index === -1) throw new Error(`No article "${articleId}" under "${section}" in src/data/site.ts`);
 
-const topic = topics[index];
-const previous = topics[index - 1];
-const next = topics[index + 1];
+const article = articles[index];
+const previous = articles[index - 1];
+const next = articles[index + 1];
 ---
 
-<BaseLayout title={`${topic.tabTitle ?? topic.title} — ${SITE_NAME}`} description={topic.description} activeSubject={subject}>
+<BaseLayout title={`${article.title} — ${SITE_NAME}`} description={article.description} activeSection={section}>
   <MathJax slot="head" />
 
-  <Breadcrumb items={[{ label, href }, { label: topic.title }]} />
+  <Breadcrumb items={[{ label, href }, { label: article.title }]} />
 
   <div class="article-grid">
     <nav id="toc" class="toc" aria-label="Table of contents">
@@ -44,8 +44,8 @@ const next = topics[index + 1];
 
     <article class="prose">
       <header class="article-header">
-        <h1>{topic.title}</h1>
-        <p class="page-subtitle">{topic.summary}</p>
+        <h1>{article.title}</h1>
+        <p class="page-subtitle">{article.summary}</p>
       </header>
 
       <slot />

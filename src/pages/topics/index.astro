@@ -1,13 +1,13 @@
 ---
-import SubjectLayout from '../layouts/SubjectLayout.astro';
+import SectionLayout from '../../layouts/SectionLayout.astro';
 ---
 
-<SubjectLayout subject="maths">
-  <!-- Topics are listed in src/data/site.ts. -->
+<SectionLayout section="topics">
+  <!-- Articles are listed in src/data/site.ts. -->
 
   <!-- Minimal topic chips (no big cards) -->
   <!--
-  <section aria-label="Maths topics" class="topics-grid">
+  <section aria-label="Topics" class="topics-grid">
     <a class="topic-chip" href="#algebra">Algebra</a>
     <a class="topic-chip" href="#calculus">Calculus</a>
     <a class="topic-chip" href="#linear-algebra">Linear Algebra</a>
@@ -20,4 +20,4 @@ import SubjectLayout from '../layouts/SubjectLayout.astro';
     Trigonometry: Unit circle • Sine, Cosine and Tangent • Basic trigonometric identities
     Vectors: Vector definition • Vector operations • Dot product • Cross product
   -->
-</SubjectLayout>
+</SectionLayout>

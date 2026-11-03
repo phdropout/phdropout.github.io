@@ -1,0 +1,38 @@
+---
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_NAME, sections, type Article, type SectionId } from '../data/site';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  section: SectionId;
+}
+
+const { section } = Astro.props;
+const { label, description } = sections[section];
+const articles: Article[] = sections[section].articles;
+---
+
+<BaseLayout title={`${label} — ${SITE_NAME}`} description={description} activeSection={section}>
+  <Breadcrumb items={[{ label }]} />
+
+  <section class="page-header">
+    <h1>{label}</h1>
+    <p class="page-subtitle">Select a topic to explore</p>
+  </section>
+
+  <ul class="topic-list">
+    {articles.map((article) => (
+      <li>
+        <a id={article.id} class="topic-row" href={article.href}>
+          <span class="topic-text">
+            <span class="topic-title">{article.title}</span>
+            <span class="topic-summary">{article.summary}</span>
+          </span>
+          <span class="topic-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <slot />
+</BaseLayout>

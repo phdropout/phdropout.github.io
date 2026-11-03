@@ -1,43 +1,33 @@
 ---
-import { SITE_DESCRIPTION, SITE_NAME, subjects } from '../data/site';
+import { SITE_DESCRIPTION, SITE_NAME, sections } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// The first topic of each subject is where a new reader should begin.
-const startHere = Object.values(subjects).map((subject) => subject.topics[0]);
+const { topics } = sections;
 ---
 
 <BaseLayout title={`${SITE_NAME} — Learn Simply`} description={SITE_DESCRIPTION}>
   <section class="hero">
     <div class="hero-copy">
       <h1>Welcome to <span class="quiet">Ph.D. Dropout</span></h1>
-      <p class="hero-lede">I always wanted a place devoted to the <i>why</i> behind equations. This project focuses on physics and mathematics derivations presented step by step, with just enough context to stay clear. No fluff—only the reasoning that makes the results inevitable.</p>
+      <p class="hero-lede">I always wanted a place devoted to the <i>why</i> behind equations. This project focuses on mathematics derivations presented step by step, with just enough context to stay clear. No fluff—only the reasoning that makes the results inevitable.</p>
 
       <div class="hero-actions">
-        <a class="btn primary" href={subjects.physics.href}>Start Physics</a>
-        <a class="btn" href={subjects.maths.href}>Start Maths</a>
+        <a class="btn primary" href={topics.href}>Browse Topics</a>
       </div>
 
       <h2>Why the name</h2>
       <p>
-        The name <i>Ph.D. Dropout</i> comes from the fact that I am a Ph.D. dropout. What stayed is the urge to understand things from first principles. This project is where I turn that habit into notes, derivations, and small practice sets in physics and mathematics.
+        The name <i>Ph.D. Dropout</i> comes from the fact that I am a Ph.D. dropout. What stayed is the urge to understand things from first principles. This project is where I turn that habit into notes, derivations, and small practice sets in mathematics.
       </p>
     </div>
 
     <aside class="start-here" aria-label="Quick links">
       <h2 class="start-title">Start here</h2>
       <ul>
-        {startHere.map((topic) => (
-          <li><a href={topic.href}>{topic.title}<span aria-hidden="true">→</span></a></li>
+        {topics.articles.map((article) => (
+          <li><a href={article.href}>{article.title}<span aria-hidden="true">→</span></a></li>
         ))}
       </ul>
     </aside>
   </section>
-
-  <!-- Minimal subject pills (replaces big subject cards) -->
-  <!--
-  <section class="pill-row" aria-label="Subjects">
-    <a class="pill" href="physics.html">Physics</a>
-    <a class="pill" href="maths.html">Maths</a>
-  </section>
-  -->
 </BaseLayout>
