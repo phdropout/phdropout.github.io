@@ -1,6 +1,6 @@
 ---
 import Breadcrumb from '../components/Breadcrumb.astro';
-import { CONTACT_URL, SITE_NAME } from '../data/site';
+import { SITE_NAME } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -16,6 +16,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <p style="margin-top: 2em;">
       This page explains what is collected when you visit this site, and why. You don't need an account to read anything here, and the site has no sign-ups or forms, so I don't ask you for any personal information.
+    </p>
+    <p>
+      Google Analytics and Google AdSense only load if you accept cookies in the banner at the bottom of the page. If you decline, neither of them loads. You can change your choice at any time using <strong>Cookie settings</strong> in the footer.
     </p>
 
     <h2>Google Analytics</h2>
@@ -50,22 +53,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <li><strong>jsDelivr</strong> delivers MathJax, which displays the equations on article pages. See <a href="https://www.jsdelivr.com/terms/privacy-policy">jsDelivr's privacy policy</a>.</li>
     </ul>
 
-    <h2>Your theme setting</h2>
+    <h2>Settings saved in your browser</h2>
     <p>
-      If you switch between light and dark mode, your choice is saved in your browser so the site remembers it. It stays on your device and isn't sent to me.
+      If you switch between light and dark mode, or make a cookie choice, it is saved in your browser so the site remembers it. It stays on your device and isn't sent to me.
     </p>
 
     <h2>Your choices</h2>
     <p>
-      You can block or delete cookies in your browser's settings, and the site will still work. Depending on where you live, you may also have rights over your personal data, such as asking to see or delete it. Most of what is described here is held by the services above, so requests about that data are best made to them directly.
+      You can change your cookie choice using <strong>Cookie settings</strong> in the footer, or block and delete cookies in your browser's settings. The site works either way. Depending on where you live, you may also have rights over your personal data, such as asking to see or delete it. Most of what is described here is held by the services above, so requests about that data are best made to them directly.
     </p>
     <p>
       I don't sell your personal information. This site isn't directed at children under 13, and I don't knowingly collect their personal information.
     </p>
 
-    <h2>Changes and contact</h2>
+    <h2>Changes</h2>
     <p>
-      If this policy changes, I'll update this page and the date at the top. For questions, you can <a href={CONTACT_URL}>contact me here</a>.
+      If this policy changes, I'll update this page and the date at the top.
     </p>
   </article>
 </BaseLayout>

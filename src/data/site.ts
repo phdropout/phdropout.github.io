@@ -2,9 +2,6 @@ export const SITE_NAME = 'Ph.D. Dropout';
 
 export const SITE_DESCRIPTION = 'Mathematics derivations presented step by step, with just enough context to stay clear. The reasoning that makes the results inevitable.';
 
-/** Where readers can reach the site's owner, including about privacy. */
-export const CONTACT_URL = 'https://github.com/phdropout/phdropout.github.io/issues';
-
 export interface Article {
   /** Must match the file name of the article's page. */
   id: string;

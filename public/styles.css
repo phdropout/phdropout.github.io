@@ -471,6 +471,50 @@ a:hover { color: var(--ink); }
 .site-footer a { color: var(--accent); font-weight: 500; }
 .site-footer a:hover { color: var(--ink); }
 
+.footer-button {
+  padding: 0;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 500;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.footer-button:hover { color: var(--ink); }
+
+/* ===== Cookie banner ===== */
+.consent-banner {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 20px;
+  padding: 10px 20px;
+  color: var(--muted);
+  font-size: 13.5px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.consent-banner[hidden] { display: none; }
+.consent-banner p { margin: 0; }
+.consent-link { font-weight: 500; white-space: nowrap; }
+.consent-actions { display: flex; flex: none; gap: 8px; }
+
+.consent-banner .btn {
+  min-height: 34px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 13.5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.consent-banner .btn:hover { background: var(--surface); }
+
 /* ===== Narrower screens ===== */
 @media (max-width: 1040px) {
   .article-grid { display: block; max-width: 720px; margin-inline: auto; padding-top: 28px; }
@@ -513,6 +557,9 @@ a:hover { color: var(--ink); }
   .topic-title { font-size: 23px; }
   .pager { flex-direction: column; }
   .pager-link { max-width: none; }
+  .consent-banner { flex-wrap: wrap; padding: 10px 16px; line-height: 1.4; }
+  .consent-actions { flex: 1 0 100%; }
+  .consent-actions .btn { flex: 1; justify-content: center; }
 }
 
 @media (max-width: 350px) {

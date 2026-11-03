@@ -1,4 +1,5 @@
 ---
+import ConsentBanner from '../components/ConsentBanner.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_NAME, type ActiveNav } from '../data/site';
@@ -29,20 +30,39 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
       } catch (e) {}
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3"></script>
+    <!-- Google Analytics and AdSense only load once the visitor accepts cookies. -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      window.loadConsentedScripts = function () {
+        if (window.consentedScriptsLoaded) return;
+        window.consentedScriptsLoaded = true;
 
-      gtag('config', 'G-WVC02428G3');
+        function addScript(src, crossOrigin) {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = src;
+          if (crossOrigin) script.crossOrigin = 'anonymous';
+          document.head.appendChild(script);
+        }
+
+        // Google tag (gtag.js)
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-WVC02428G3');
+        addScript('https://www.googletagmanager.com/gtag/js?id=G-WVC02428G3');
+
+        // Google AdSense
+        addScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298', true);
+      };
+
+      try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') window.loadConsentedScripts();
+      } catch (e) {}
     </script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-adsense-account" content="ca-pub-9655733111830298" />
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655733111830298" crossorigin="anonymous"></script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -72,6 +92,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
     </main>
 
     <Footer />
+    <ConsentBanner />
     <script is:inline src="/script.js"></script>
   </body>
 </html>

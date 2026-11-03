@@ -14,6 +14,69 @@
   });
 })();
 
+// Cookie banner: asks once, and can be reopened from the footer
+(function () {
+  const banner = document.getElementById('consent-banner');
+  const KEY = 'cookie-consent';
+
+  const getChoice = () => {
+    try {
+      return localStorage.getItem(KEY);
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const saveChoice = (choice) => {
+    try {
+      localStorage.setItem(KEY, choice);
+    } catch (e) {
+      // Storage can be blocked; the choice then applies to this page only.
+    }
+  };
+
+  // Keep the banner from covering the end of the page while it's open.
+  const fitPage = () => {
+    document.body.style.paddingBottom = banner.hidden ? '' : `${banner.offsetHeight}px`;
+  };
+
+  const showBanner = (isOpen) => {
+    banner.hidden = !isOpen;
+    fitPage();
+  };
+
+  const removeCookies = () => {
+    const prefixes = ['_ga', '_gid', '_gat', '_gcl', '__gads', '__gpi', '__eoi'];
+    const host = location.hostname;
+    document.cookie.split(';').forEach((cookie) => {
+      const name = cookie.split('=')[0].trim();
+      if (!prefixes.some((prefix) => name.startsWith(prefix))) return;
+      ['', `; domain=${host}`, `; domain=.${host}`].forEach((domain) => {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain}`;
+      });
+    });
+  };
+
+  document.getElementById('consent-accept').addEventListener('click', () => {
+    saveChoice('accepted');
+    window.loadConsentedScripts();
+    showBanner(false);
+  });
+
+  document.getElementById('consent-decline').addEventListener('click', () => {
+    saveChoice('declined');
+    removeCookies();
+    showBanner(false);
+    // Scripts that have already loaded can only be stopped by reloading the page.
+    if (window.consentedScriptsLoaded) location.reload();
+  });
+
+  document.getElementById('consent-settings').addEventListener('click', () => showBanner(true));
+  window.addEventListener('resize', fitPage);
+
+  if (!getChoice()) showBanner(true);
+})();
+
 // Footer: current year and last-updated date
 (function () {
   const yearSpan = document.getElementById('current-year');
