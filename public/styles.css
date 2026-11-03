@@ -78,7 +78,9 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
-a { color: var(--accent); }
+/* Links have no underline, so they stand out through color alone or color and weight. */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--ink); }
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -191,7 +193,7 @@ a { color: var(--accent); }
 }
 
 .breadcrumb a { color: var(--muted); text-decoration: none; }
-.breadcrumb a:hover { color: var(--ink); text-decoration: underline; }
+.breadcrumb a:hover { color: var(--ink); }
 
 /* ===== Home ===== */
 .hero {
@@ -348,6 +350,7 @@ a { color: var(--accent); }
   line-height: 1.7;
 }
 
+.prose a { font-weight: 600; }
 .prose p { margin: 0 0 1.1em; }
 .prose ul, .prose ol { margin: 0 0 1.1em; padding-left: 1.4em; }
 .prose li { margin-bottom: .45em; padding-left: .2em; }
@@ -464,7 +467,7 @@ a { color: var(--accent); }
 }
 
 .site-footer p { margin: 0; }
-.site-footer a { color: inherit; }
+.site-footer a { color: var(--accent); font-weight: 500; }
 .site-footer a:hover { color: var(--ink); }
 
 /* ===== Narrower screens ===== */
