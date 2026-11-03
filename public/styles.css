@@ -422,6 +422,11 @@ a { color: var(--accent); }
 
 .result + .result { margin-top: -.8em; }
 
+/* ===== Standalone pages, such as the privacy policy ===== */
+.page-prose { max-width: 720px; }
+.page-prose h1 { margin: 48px 0 8px; font-size: clamp(36px, 5vw, 52px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+.page-prose h2 { margin: 2em 0 .5em; font-size: 26px; }
+
 /* ===== Previous / next ===== */
 .pager {
   display: flex;
@@ -459,6 +464,8 @@ a { color: var(--accent); }
 }
 
 .site-footer p { margin: 0; }
+.site-footer a { color: inherit; }
+.site-footer a:hover { color: var(--ink); }
 
 /* ===== Narrower screens ===== */
 @media (max-width: 1040px) {
