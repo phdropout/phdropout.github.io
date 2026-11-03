@@ -219,6 +219,7 @@ a:hover { color: var(--ink); }
 .hero-lede { margin: 0; font-size: clamp(20px, 2.2vw, 23px); line-height: 1.55; color: var(--ink); }
 .hero-copy h2 { margin: 64px 0 10px; color: var(--ink); font-size: 26px; }
 .hero-copy p:last-child { margin: 0; }
+.story-link { font-weight: 600; white-space: nowrap; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; font-family: var(--font-ui); }
 

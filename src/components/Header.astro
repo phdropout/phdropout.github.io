@@ -1,12 +1,13 @@
 ---
-import { SITE_NAME, sections, type SectionId } from '../data/site';
+import { SITE_NAME, sections, type ActiveNav } from '../data/site';
 
 interface Props {
-  /** Section to highlight in the nav. */
-  active?: SectionId;
+  /** Menu item to highlight. */
+  active?: ActiveNav;
 }
 
 const { active } = Astro.props;
+const menu = [...Object.entries(sections), ['about', { label: 'About', href: '/about/' }] as const];
 ---
 
 <header class="site-header">
@@ -17,8 +18,8 @@ const { active } = Astro.props;
     </a>
 
     <nav class="nav" aria-label="Main">
-      {Object.entries(sections).map(([id, section]) => (
-        <a class={id === active ? 'active' : undefined} href={section.href} aria-current={id === active ? 'true' : undefined}>{section.label}</a>
+      {menu.map(([id, item]) => (
+        <a class={id === active ? 'active' : undefined} href={item.href} aria-current={id === active ? 'true' : undefined}>{item.label}</a>
       ))}
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle light/dark">
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" /></svg>

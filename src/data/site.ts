@@ -48,3 +48,6 @@ export const sections = {
 } satisfies Record<string, Section>;
 
 export type SectionId = keyof typeof sections;
+
+/** What the header can highlight: a section, or a standalone page in its menu. */
+export type ActiveNav = SectionId | 'about';

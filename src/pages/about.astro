@@ -1,0 +1,27 @@
+---
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_NAME } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={`About — ${SITE_NAME}`}
+  description="Why a Ph.D. dropout in physics writes about mathematics from first principles, and the questions behind this site."
+  activeSection="about"
+>
+  <Breadcrumb items={[{ label: 'About' }]} />
+
+  <article class="prose page-prose">
+    <h1>About</h1>
+
+    <p style="margin-top: 1.4em;">
+      I was pursuing a Ph.D. in physics, and I dropped out of the program.
+    </p>
+    <p>
+      What stayed with me was how I like to learn: from first principles. I was never satisfied with just being handed a formula. I wanted to know why the dot product is defined the way it is, why the cross product is defined the way it is, and how the trigonometric identities are derived.
+    </p>
+    <p>
+      This site is where I work through those questions, one step at a time, so that each result feels inevitable rather than memorized.
+    </p>
+  </article>
+</BaseLayout>
